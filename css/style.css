@@ -1,0 +1,158 @@
+﻿/*
+ * Style tweaks
+ * --------------------------------------------------
+ */
+html,
+body {
+  padding-top: 10px;
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
+  height: 100%;
+}
+
+footer {
+  padding: 30px 0;
+}
+
+.list-group-item{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#info-click{
+    /*position: fixed;
+    bottom: 0px;
+    z-index: -9999;
+    width: 9%;*/
+}
+
+#streetName-label{
+    font-weight: bold;
+    display: inline;
+}
+
+#map-container {
+    margin-top: 15px;
+    width:100%;
+    height: 93%;
+    background-color: grey;
+}
+
+#streetName-label-parent{
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 5px;
+
+}
+
+.container-fluid, #content-subpage, .content, .row{
+    height: 100%;
+}  
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ * Greater thav 768px shows the menu by default and also flips the semantics
+ * The issue is to show menu for large screens and to hide for small
+ * Also need to do something clever to turn off the tabs for when the navigation is hidden
+ * Otherwise keyboard users cannot find the focus point
+ * (For now I will ignore that for mobile users and also not worry about
+ * screen re-sizing popping the menu out.)
+ */
+@media screen and (min-width: 768px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all .25s ease-out;
+       -moz-transition: all .25s ease-out;
+            transition: all .25s ease-out;
+  }
+
+  .row-offcanvas-right {
+    right: 14%;
+  }
+
+  .row-offcanvas-left {
+    left: 14%;
+  }
+
+  .row-offcanvas-right .sidebar-offcanvas {
+    right: -14%; /* 3 columns */
+  	background-color: rgb(255, 255, 255);
+  }
+
+  .row-offcanvas-left .sidebar-offcanvas {
+    left: -14%; /* 3 columns */
+  	background-color: rgb(255, 255, 255);
+  }
+
+  .row-offcanvas-right.active {
+    right: 0; /* 3 columns */
+  }
+
+  .row-offcanvas-left.active {
+    left: 0; /* 3 columns */
+  }
+
+  .row-offcanvas-right.active .sidebar-offcanvas {
+  	background-color: rgb(254, 254, 254);
+  }
+  .row-offcanvas-left.active .sidebar-offcanvas {
+  	background-color: rgb(254, 254, 254);
+  }
+
+.row-offcanvas .content {
+    width: 86%; /* 9 columns */
+    -webkit-transition: all .25s ease-out;
+       -moz-transition: all .25s ease-out;
+            transition: all .25s ease-out;
+
+  }
+
+  .row-offcanvas.active .content {
+    width: 100%; /* 12 columns */
+  }
+       
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 14%; /* 3 columns */
+  }
+}
+@media screen and (max-width: 767px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all .25s ease-out;
+       -moz-transition: all .25s ease-out;
+            transition: all .25s ease-out;
+  }
+
+  .row-offcanvas-right {
+    right: 0;
+  }
+
+  .row-offcanvas-left {
+    left: 0;
+  }
+
+  .row-offcanvas-right
+  .sidebar-offcanvas {
+    right: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-right.active {
+    right: 50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left.active {
+    left: 50%; /* 6 columns */
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 50%; /* 6 columns */
+  }
+}

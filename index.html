@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <!-- external-->
+    <script src="lib/Scripts/jquery-1.9.1.js"></script>
+    <script src="lib/Scripts/bootstrap.js"></script>
+    <script src="lib/Scripts/raphael.js"></script>
+    <link href="lib/Content/bootstrap.css" rel="stylesheet" />
+    <link href="lib/Content/font-awesome.css" rel="stylesheet" />
+    <script src="lib/Scripts/svg-pan-zoom.min.js"></script>
+
+    <!--internal-->
+    <script src="js/main.js"></script>
+    <link href="css/style.css" rel="stylesheet" />
+
+    <script src="js/showPlace.js"></script>
+
+	<meta charset="utf-8" />
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row row-offcanvas row-offcanvas-left">
+
+            <!--SIDEBAR-->
+            <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
+                <div class="list-group">
+                    <a href="#" class="list-group-item active" id="place-click">
+                        Miejsce na mapie <br />
+                        <i class="fa fa-map fa-4x" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="list-group-item" id="name-click">
+                        Nazwa ulicy <br />
+                        <i class="fa fa-font fa-4x" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="list-group-item" id="info-click">
+                        Info <br />
+                        <!--<i class="fa fa-info fa-2x" aria-hidden="true"></i>-->
+                    </a>
+                </div>
+            </div>
+
+            <!--MAIN AREA-->
+            <div class="col-xs-12 col-sm-9 content">
+                <p class="pull-left">
+                    <button type="button" id ="hideMenu-btn" class="btn btn-primary btn-xs" data-toggle="offcanvas">Menu</button>
+                </p>
+
+                <div class="text-center" id="content-subpage">
+
+                </div>
+            </div>
+
+        </div> <!--!row-->
+    </div> <!--container-fluid-->
+
+</body>
+</html>
