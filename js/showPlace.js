@@ -113,13 +113,17 @@
             });
         }
 
+        // kliknij "Losuj inną"
+        $('#setNewStreet-btn').click(function () {
+            setStreet();
+        });
+
         // tworzy kontroler zoom pan
-        //
         function createBeforePanZoom() {
             var beforePan = function (oldPan, newPan) {
                 var stopHorizontal = false
                   , stopVertical = false
-                  , gutterWidth = container.width() - 300 // TODO: poprawić to 300
+                  , gutterWidth = container.width() - (SVG_width - container.width())/2 - 10 // TODO: poprawić to 170
                   , gutterHeight = container.height()
                    // Computed variables
                   , sizes = this.getSizes()
@@ -128,14 +132,17 @@
                   , topLimit = -((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight
                   , bottomLimit = sizes.height - gutterHeight - (sizes.viewBox.y * sizes.realZoom)
 
+                console.log("gutterWidth", gutterWidth);
+                console.log("gutterHeight", gutterHeight);
+                console.log("sizes", sizes);
+                console.log("leftLimit", leftLimit);
+                console.log("rightLimit", rightLimit);
+                console.log("topLimit", topLimit);
+                console.log("bottomLimit", bottomLimit);
+
                 customPan = {}
                 customPan.x = Math.max(leftLimit, Math.min(rightLimit, newPan.x))
                 customPan.y = Math.max(topLimit, Math.min(bottomLimit, newPan.y))
-
-                if (zoomController.getZoom() < 1.05) {
-                    console.log('ss');
-                    $('#svg-pan-zoom-reset-pan-zoom > path:nth-child(3)').trigger("click");
-                }
 
                 return customPan
             }

@@ -38,10 +38,16 @@ footer {
 }
 
 #streetName-label-parent{
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
   margin-bottom: 5px;
 
+}
+
+#setNewStreet-btn{
+    display: inline; 
+    margin-right:0;
+    float: right;
 }
 
 .container-fluid, #content-subpage, .content, .row{
