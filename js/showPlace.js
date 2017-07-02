@@ -114,6 +114,7 @@
         }
 
         // tworzy kontroler zoom pan
+        //
         function createBeforePanZoom() {
             var beforePan = function (oldPan, newPan) {
                 var stopHorizontal = false
