@@ -42,6 +42,7 @@
             maxZoom: 10,
             controlIconsEnabled: true,
             zoomScaleSensitivity: 0.25,
+            dblClickZoomEnabled: false,
             center: 1,
             fit: 1,
             beforePan: beforePanZoom,
