@@ -71,7 +71,7 @@
 
         // style
         var basicStyle = {
-            fill: "none",
+            //fill: "none",
             stroke: "#000000",
             "stroke-width": 13,
             "stroke-linejoin": "round",
@@ -130,6 +130,31 @@
         // kliknięcie "Losuj inną"
         $('#setNewStreet-btn').click(function () {
             setStreet();
+        });
+
+        $('#getHint-btn').click(function () {
+            document.getElementById("setNewStreet-btn").disabled = true;
+            zoomController.resetZoom();
+            zoomController.resetPan();
+
+            var animationSpeedHint = 700;
+
+            var hintStyle = {
+                //fill: "none",
+                stroke: "#ffa500",
+                "stroke-width": 13,
+                "stroke-linejoin": "round",
+                cursor: "pointer"
+            };
+
+            streets[$('#streetName-label').attr('name')].animate(hintStyle, animationSpeedHint, function () {
+                setTimeout(function () {
+                    streets[$('#streetName-label').attr('name')].animate(basicStyle, animationSpeedHint);
+                    document.getElementById("setNewStreet-btn").disabled = false;
+                },700);
+              // 
+            });
+            
         });
 
     }

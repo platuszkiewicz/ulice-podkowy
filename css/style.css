@@ -50,6 +50,13 @@ footer {
     float: right;
 }
 
+
+#getHint-btn{
+    display: inline; 
+    margin-right:5px;
+    float: right;
+}
+
 .container-fluid, #content-subpage, .content, .row{
     height: 100%;
 }  
