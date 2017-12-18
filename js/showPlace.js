@@ -36,14 +36,24 @@
         var beforePan = function (oldPan, newPan) {
             var stopHorizontal = true
               , stopVertical = false
-              , gutterWidth = container.width()*0.1*this.getSizes().realZoom / 0.5
+              , gutterWidth = container.width()//*0.1*this.getSizes().realZoom / 0.5
               , gutterHeight = container.height() * 0.9
                 // Computed variables
               , sizes = this.getSizes()
-              , leftLimit = -((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom) + gutterWidth
-              , rightLimit = sizes.width - gutterWidth - (sizes.viewBox.x * sizes.realZoom)
+              , leftLimit = -((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom) + gutterWidth * sizes.realZoom
+              , rightLimit = sizes.width- gutterWidth * sizes.realZoom - (sizes.viewBox.x * sizes.realZoom)
               , topLimit = -((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight
               , bottomLimit = sizes.height - gutterHeight - (sizes.viewBox.y * sizes.realZoom)
+
+            console.log("###");
+            console.log(sizes);
+            console.log("Gutter width:", gutterWidth);
+            console.log("Gutter height:", gutterHeight);
+            console.log("Left limit:", leftLimit);
+            console.log("Right limit:", rightLimit);
+            console.log("Top limit:", topLimit);
+            console.log("Bottom limit:", bottomLimit);
+
 
             customPan = {}
             customPan.x = Math.max(leftLimit, Math.min(rightLimit, newPan.x))
