@@ -36,12 +36,12 @@
         var beforePan = function (oldPan, newPan) {
             var stopHorizontal = true
               , stopVertical = false
-              , gutterWidth = container.width()//*0.1*this.getSizes().realZoom / 0.5
-              , gutterHeight = container.height() * 0.9
+              , gutterWidth = container.width() //* 0.1 * this.getSizes().realZoom / 0.5
+              , gutterHeight = container.height() //* 0.98
                 // Computed variables
               , sizes = this.getSizes()
-              , leftLimit = -((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom) + gutterWidth * sizes.realZoom
-              , rightLimit = sizes.width- gutterWidth * sizes.realZoom - (sizes.viewBox.x * sizes.realZoom)
+              , leftLimit = -((sizes.viewBox.x + sizes.viewBox.width)) * sizes.realZoom + sizes.width * sizes.realZoom
+              , rightLimit = 1000//sizes.width - gutterWidth - (sizes.viewBox.x * sizes.realZoom)
               , topLimit = -((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight
               , bottomLimit = sizes.height - gutterHeight - (sizes.viewBox.y * sizes.realZoom)
 
@@ -63,10 +63,10 @@
         }
 
         var zoomController = svgPanZoom(svg, {
-            minZoom: 0.95
+            minZoom: 1//0.95
             , maxZoom: 3.5
             //controlIconsEnabled: true,
-            , zoomScaleSensitivity: 0.3
+            , zoomScaleSensitivity: 0.2
             //dblClickZoomEnabled: false,
             //center: 1,
             //fit: 1,
@@ -87,7 +87,7 @@
             "stroke-linejoin": "round",
             cursor: "pointer"
         };
-        
+
         for (var streetName in streets) {
             streets[streetName].attr(basicStyle);
         }
@@ -162,9 +162,9 @@
                     streets[$('#streetName-label').attr('name')].animate(basicStyle, animationSpeedHint);
                     document.getElementById("setNewStreet-btn").disabled = false;
                 },700);
-              // 
+                // 
             });
-            
+
         });
 
     }
