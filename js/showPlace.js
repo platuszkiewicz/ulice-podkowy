@@ -31,7 +31,7 @@
         svg.setAttribute("width", container.width());
         svg.setAttribute("height", container.height());
 
-        // PAN ZOOM
+
 
         var beforePan = function (oldPan, newPan) {
             var stopHorizontal = true
@@ -40,12 +40,17 @@
               , gutterHeight = container.height() //* 0.98
                 // Computed variables
               , sizes = this.getSizes()
-              , leftLimit = -((sizes.viewBox.x + sizes.viewBox.width)) * sizes.realZoom + sizes.width * sizes.realZoom
-              , rightLimit = 1000//sizes.width - gutterWidth - (sizes.viewBox.x * sizes.realZoom)
+              , leftLimit = container.width() - SVG_width * sizes.realZoom > 0 ?
+                                    (container.width() - SVG_width * sizes.realZoom + sizes.viewBox.x) / 2 :
+                                    (container.width() - SVG_width * sizes.realZoom + sizes.viewBox.x) 
+              , rightLimit = 0
               , topLimit = -((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight
               , bottomLimit = sizes.height - gutterHeight - (sizes.viewBox.y * sizes.realZoom)
 
             console.log("###");
+            console.log("Grey available area width", container.width())
+            console.log("Map width on screen", SVG_width * sizes.realZoom) // ew. sizes.viewBox.width
+            console.log("Init zoom:", initZoom)
             console.log(sizes);
             console.log("Gutter width:", gutterWidth);
             console.log("Gutter height:", gutterHeight);
@@ -62,6 +67,7 @@
             return customPan;
         }
 
+        // PAN ZOOM
         var zoomController = svgPanZoom(svg, {
             minZoom: 1//0.95
             , maxZoom: 3.5
@@ -77,7 +83,7 @@
             , center: 1
             , beforePan: beforePan
         });
-        zoomController.zoom(0.95)
+        var initZoom = zoomController.getSizes().realZoom;
 
         // style
         var basicStyle = {
