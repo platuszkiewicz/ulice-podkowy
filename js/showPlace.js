@@ -40,10 +40,10 @@
                 // Computed variables
               , sizes = this.getSizes()
               , leftLimit = container.width() - SVG_width * sizes.realZoom > 0 ?
-                                    (container.width() - SVG_width * sizes.realZoom + sizes.viewBox.x) / 2 :
+                                    (container.width() - SVG_width * sizes.realZoom + sizes.viewBox.x*(+(!mobileCheck()))) / 2 :
                                     (container.width() - SVG_width * sizes.realZoom + sizes.viewBox.x) 
               , rightLimit = 0
-              , topLimit = -((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight // sizes.viewBox.height
+              , topLimit = -((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight
               , bottomLimit = sizes.height - gutterHeight - (sizes.viewBox.y * sizes.realZoom)
 
             console.log("###");
@@ -237,6 +237,11 @@
 
     }
 
+    // przystosowuje urządzenia mobilne
+    function mobileAdapt_showPlace() {
+        $('#hideMenu-btn').html('<>');
+        $('#streetName-label-parent')["0"].childNodes["0"].data = 'Wskaż ulicę: '       
+    }
 
     // load other singletons. Other singleton contain some logic which can be packed, i.e. modal	
     function ShowPlace() {
@@ -250,6 +255,9 @@
             streetsJSON = data;
             setStreet();
             drawMap_showPlace();
+            if (mobileCheck()) {
+                mobileAdapt_showPlace();
+            }
         });
     }
     ///////////////////////////////////////////////////
