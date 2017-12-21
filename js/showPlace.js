@@ -211,22 +211,27 @@
                 if ($('#streetName-label').attr('name') == this.data("id")) {
                     //alert('ok');
                     var that = this;
-                    this.animate(successStyle, 300, function () {
+                    that.animate(successStyle, 250, function () {
                         setTimeout(function () {
-                            that.animate(basicStyle, 300);
-                        }, 500);
+                            that.animate(basicStyle, 250);
+                        }, 700);
 
                     });
                     setStreet();
 
                 } else {
                     //alert('błędna odpowiedź');
-                    this.animate(errorStyle, 300, function () {
-                        this.animate(basicStyle, 300, function () {
-                            this.animate(errorStyle, 300, function () {
-                                this.animate(basicStyle, 300);
+                    var that = this;
+                    that.animate(errorStyle, 250, function () {
+                        setTimeout(function () {
+                            that.animate(basicStyle, 250, function () {
+                                that.animate(errorStyle, 250, function () {
+                                    setTimeout(function () {
+                                        that.animate(basicStyle, 250);
+                                    }, 500);
+                                });
                             });
-                        });
+                        }, 500);
                     });
                 }
 
