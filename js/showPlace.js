@@ -291,6 +291,9 @@
             if (mobileCheck()) {
                 mobileAdapt_showPlace();
             }
+            window.addEventListener('resize', function () {
+                drawMap_showPlace();
+            }, true);
         });
     }
     ///////////////////////////////////////////////////
