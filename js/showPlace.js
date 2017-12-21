@@ -35,20 +35,20 @@
         var beforePan = function (oldPan, newPan) {
             var stopHorizontal = true
               , stopVertical = false
-              , gutterWidth = container.width() 
+              , gutterWidth = container.width()
               , gutterHeight = container.height()
                 // Computed variables
               , sizes = this.getSizes()
               , leftLimit = container.width() - SVG_width * sizes.realZoom > 0 ?
-                                    (container.width() - SVG_width * sizes.realZoom + sizes.viewBox.x*(+(!mobileCheck()))) / 2 :
-                                    (container.width() - SVG_width * sizes.realZoom + sizes.viewBox.x) 
+                                    (container.width() - SVG_width * sizes.realZoom + sizes.viewBox.x * (+(!mobileCheck()))) / 2 :
+                                    (container.width() - SVG_width * sizes.realZoom + sizes.viewBox.x)
               , rightLimit = 0
               , topLimit = -((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight
               , bottomLimit = sizes.height - gutterHeight - (sizes.viewBox.y * sizes.realZoom)
 
             console.log("###");
             console.log("Grey available area width", container.width())
-            console.log("Map width on screen", SVG_width * sizes.realZoom) 
+            console.log("Map width on screen", SVG_width * sizes.realZoom)
             console.log("Init zoom:", initZoom)
             console.log(sizes);
             console.log("Gutter width:", gutterWidth);
@@ -58,7 +58,7 @@
             console.log("Top limit:", topLimit, sizes.realZoom, sizes.viewBox.y, sizes.viewBox.height, gutterHeight);
             console.log("Bottom limit:", bottomLimit);
             console.log(this);
-            
+
             customPan = {}
             customPan.x = Math.max(leftLimit, Math.min(rightLimit, newPan.x))
             customPan.y = Math.max(topLimit, Math.min(bottomLimit, newPan.y))
@@ -66,7 +66,7 @@
             return customPan;
         }
 
-        var beforeZoom = function(oldZoom, newZoom) {
+        var beforeZoom = function (oldZoom, newZoom) {
             console.log("oldZoom", oldZoom);
             console.log("newZoom", newZoom);
             console.log("initZoom", initZoom);
@@ -155,6 +155,20 @@
             "stroke-linejoin": "round",
             cursor: "pointer"
         };
+        var successStyle = {
+            //fill: "none",
+            stroke: "#41b51e",
+            "stroke-width": 13,
+            "stroke-linejoin": "round",
+            cursor: "pointer"
+        };
+        var errorStyle = {
+            //fill: "none",
+            stroke: "#ff6161",
+            "stroke-width": 13,
+            "stroke-linejoin": "round",
+            cursor: "pointer"
+        };
 
         for (var streetName in streets) {
             streets[streetName].attr(basicStyle);
@@ -195,11 +209,25 @@
             streets[streetName].click(function () {
 
                 if ($('#streetName-label').attr('name') == this.data("id")) {
-                    alert('ok');
+                    //alert('ok');
+                    var that = this;
+                    this.animate(successStyle, 300, function () {
+                        setTimeout(function () {
+                            that.animate(basicStyle, 300);
+                        }, 500);
+
+                    });
                     setStreet();
 
                 } else {
-                    alert('błędna odpowiedź')
+                    //alert('błędna odpowiedź');
+                    this.animate(errorStyle, 300, function () {
+                        this.animate(basicStyle, 300, function () {
+                            this.animate(errorStyle, 300, function () {
+                                this.animate(basicStyle, 300);
+                            });
+                        });
+                    });
                 }
 
             });
@@ -229,7 +257,7 @@
                 setTimeout(function () {
                     streets[$('#streetName-label').attr('name')].animate(basicStyle, animationSpeedHint);
                     document.getElementById("setNewStreet-btn").disabled = false;
-                },700);
+                }, 700);
                 // 
             });
 
@@ -240,7 +268,7 @@
     // przystosowuje urządzenia mobilne
     function mobileAdapt_showPlace() {
         $('#hideMenu-btn').html('<>');
-        $('#streetName-label-parent')["0"].childNodes["0"].data = 'Wskaż ulicę: '       
+        $('#streetName-label-parent')["0"].childNodes["0"].data = 'Wskaż ulicę: '
     }
 
     // load other singletons. Other singleton contain some logic which can be packed, i.e. modal	
