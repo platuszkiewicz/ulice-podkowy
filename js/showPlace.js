@@ -40,15 +40,15 @@
                 // Computed variables
               , sizes = this.getSizes()
               , leftLimit = container.width() - SVG_width * sizes.realZoom > 0 ?
-                                    (container.width() - SVG_width * sizes.realZoom + sizes.viewBox.x * (+(!mobileCheck()))) / 2 :
+                                    (container.width() - SVG_width * sizes.realZoom + sizes.viewBox.x * (+(!isMobile()))) / 2 :
                                     (container.width() - SVG_width * sizes.realZoom + sizes.viewBox.x)
               , rightLimit = 0
               , topLimit = -((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight
               , bottomLimit = sizes.height - gutterHeight - (sizes.viewBox.y * sizes.realZoom)
 
             console.log("###");
-            console.log("Grey available area width", container.width())
-            console.log("Map width on screen", SVG_width * sizes.realZoom)
+            console.log("Grey available area height", container.height())
+            console.log("Map height on screen", SVG_height * sizes.realZoom)
             console.log("Init zoom:", initZoom)
             console.log(sizes);
             console.log("Gutter width:", gutterWidth);
@@ -288,10 +288,11 @@
             streetsJSON = data;
             setStreet();
             drawMap_showPlace();
-            if (mobileCheck()) {
+            if (isMobile()) {
                 mobileAdapt_showPlace();
             }
             window.addEventListener('resize', function () {
+                $('svg').remove();
                 drawMap_showPlace();
             }, true);
         });
