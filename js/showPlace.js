@@ -40,10 +40,12 @@
                 // Computed variables
               , sizes = this.getSizes()
               , leftLimit = container.width() - SVG_width * sizes.realZoom > 0 ?
-                                    (container.width() - SVG_width * sizes.realZoom + sizes.viewBox.x * (+(!isMobile()))) / 2 :
-                                    (container.width() - SVG_width * sizes.realZoom + sizes.viewBox.x)
+                                    (container.width() - SVG_width * sizes.realZoom + 1 * sizes.viewBox.x * (+(!isVerticalView()))) / 2 :
+                                    (container.width() - SVG_width * sizes.realZoom + 1 * sizes.viewBox.x * (+(!isVerticalView())))
               , rightLimit = 0
-              , topLimit = -((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight
+              , topLimit = container.height() - SVG_height * sizes.realZoom > 0 && isVerticalView() ?
+                                    (-((0+ sizes.viewBox.height) * sizes.realZoom) + gutterHeight) / 2 : // sizes.viewBox.y
+                                    (-((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight)
               , bottomLimit = sizes.height - gutterHeight - (sizes.viewBox.y * sizes.realZoom)
 
             console.log("###");
@@ -67,20 +69,7 @@
         }
 
         var beforeZoom = function (oldZoom, newZoom) {
-            console.log("oldZoom", oldZoom);
-            console.log("newZoom", newZoom);
-            console.log("initZoom", initZoom);
-            var that = this;
-            console.log(that);
-            //setTimeout(function() {
-            //    //that.panBy({ x: 0, y: 1 });
-            //    //that.panBy({ x: 1, y: 0 });
-            //    //that.panBy({ x: 0, y: -1 });
-            //    //that.panBy({ x: -1, y: 0 });
-            //}, 150);
-            if (Math.abs(newZoom - 1) < 0.05) {
 
-            }
         }
 
         // PAN ZOOM
@@ -183,8 +172,10 @@
         // powiększenie obszaru roboczego
         $('#hideMenu-btn').click(function () {
             setTimeout(function () {
-                svg.setAttribute("width", container.width());//container.height() * SVG_width / SVG_height);
-                svg.setAttribute("height", container.height());
+                $('svg').remove();
+                drawMap_showPlace();
+                //svg.setAttribute("width", container.width());
+                //svg.setAttribute("height", container.height());
             }, 300);
         });
 
@@ -214,7 +205,7 @@
                     that.animate(successStyle, 250, function () {
                         setTimeout(function () {
                             that.animate(basicStyle, 250);
-                        }, 700);
+                        }, 900);
 
                     });
                     setStreet();
