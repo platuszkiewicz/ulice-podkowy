@@ -74,10 +74,10 @@
 
         // PAN ZOOM
         var zoomController = svgPanZoom(svg, {
-            minZoom: 1//0.95
-            , maxZoom: 3.5
+            minZoom: 1 //0.95
+            , maxZoom: !isMobile() ? 3.5 : 5
             //controlIconsEnabled: true,
-            , zoomScaleSensitivity: 0.2
+            , zoomScaleSensitivity: !isMobile() ? 0.2 : 0.4
             , dblClickZoomEnabled: false
             //center: 1,
             //displayFullScreenControl: true
