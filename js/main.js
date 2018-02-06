@@ -1,4 +1,9 @@
 ﻿$(document).ready(function () {
+    // usuń reklamy
+    setTimeout(function () {
+        removeAds();
+    }, 400);
+
     // ??
     $('[data-toggle=offcanvas]').click(function () {
         if ($('.sidebar-offcanvas').css('background-color') == 'rgb(255, 255, 255)') {
@@ -20,6 +25,9 @@
     $('#place-click').click(function () {
         $('#content-subpage').load('./partials/showPlace.html', null, function () {
             ShowPlace.getInstance().init(); // On Load
+            setTimeout(function () {
+                removeAds();
+            }, 400);
         });
     });
 
@@ -49,4 +57,13 @@ function isMobile() {
 
 function isVerticalView() {
     return window.innerHeight > window.innerWidth;
+}
+
+function removeAds() {
+    while ($("body").children().length != 2) {
+        $("body").children()[$("body").children().length - 1].remove();
+    }
+    $.each($('center'), function (name, val) {
+        $(val).remove();
+    });
 }
