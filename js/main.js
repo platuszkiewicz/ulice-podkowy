@@ -25,13 +25,13 @@
 
     $('#name-click').click(function () {
         $('#content-subpage').load('./partials/giveName.html', null, function () {
-            alert('give Name');
+            alert('[giveName] w trakcie implementacji');
         });
     });
 
     $('#info-click').click(function () {
         $('#content-subpage').load('./partials/info.html', null, function () {
-            alert('info');
+            alert('[info] w trakcie implementacji');
         });
     });
 
