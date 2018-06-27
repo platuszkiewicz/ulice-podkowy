@@ -47,6 +47,9 @@
     $('#content-subpage').load('./partials/showPlace.html', null, function () {
         ShowPlace.getInstance().init(); // On Load
     });
+
+    // usuń focus po kliknięciu guzików
+    document.addEventListener('click', function (e) { if (document.activeElement.toString() == '[object HTMLButtonElement]') { document.activeElement.blur(); } });
 });
 
 function isMobile() {
