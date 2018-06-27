@@ -229,6 +229,29 @@
             });
         }
 
+        // przytrzymanie mapy
+        mouse = false;
+        $('#map-container').on('mousedown ', function (e) {
+          mouse = true;
+          callEvent();
+        });
+        $('#map-container').on('mouseup ', function (e) {
+          mouse = false;
+          callEvent();
+        });
+        function callEvent() {
+          if (mouse) {
+            // do whatever you want
+            // it will continue executing until mouse is not released
+            $('#map-container').css("cursor", "move");
+            setTimeout("callEvent()", 1);
+          }
+          else {
+            $('#map-container').css("cursor", "default");
+          }
+          return;
+        }
+
         // kliknięcie "Losuj inną"
         $('#setNewStreet-btn').click(function () {
             setStreet();
