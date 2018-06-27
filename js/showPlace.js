@@ -188,8 +188,11 @@
                     region.animate(hoverStyle, animationSpeed);
                 }, true);
 
-                region[0].addEventListener("mouseout", function () {
+                region[0].addEventListener("mouseout", function (a) {
+                    //getStreetById(streets, region.id) != $('#streetName-label').attr('name') && 
+                    if (region.attrs.stroke != successStyle.stroke) {
                     region.animate(basicStyle, animationSpeed);
+                    }
                 }, true);
 
             })(streets[streetName]);
@@ -266,6 +269,19 @@
         $('#hideMenu-btn').html('<>');
         $('#streetName-label-parent')["0"].childNodes["0"].data = 'Wskaż ulicę: '
     }
+    // pobiera ulice dla danego id
+    function getStreetById(streets, id) {
+        var result = null;
+        for (var street in streets) {
+            if (streets[street].id == id) {
+                result = street;
+                break;
+            }
+        }
+        return result;
+    }
+
+
 
     // load other singletons. Other singleton contain some logic which can be packed, i.e. modal	
     function ShowPlace() {
