@@ -33,7 +33,10 @@
 
     $('#name-click').click(function () {
         $('#content-subpage').load('./partials/giveName.html', null, function () {
-            alert('[giveName] w trakcie implementacji');
+            GiveName.getInstance().init(); // On Load
+            setTimeout(function () {
+                removeAds();
+            }, 400);
         });
     });
 

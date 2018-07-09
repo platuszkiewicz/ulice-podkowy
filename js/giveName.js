@@ -1,27 +1,82 @@
-﻿var ShowPlace = (function () {
+﻿var GiveName = (function () {
     // zmienne globalne
     var streetsJSON;
+    var streetToGuess = null;
+
+    // obiekt z pathami svg
+    var streets = {};
+
+    var basicStyle = {
+        //fill: "none",
+        stroke: "#000000",
+        "stroke-width": 13,
+        "stroke-linejoin": "round",
+        //cursor: "pointer"
+    };
+    var pointerStyle = {
+        //fill: "none",
+        stroke: "#41b51e",
+        "stroke-width": 13,
+        "stroke-linejoin": "round",
+        cursor: "pointer"
+    };
 
     // losuje ulicę z streetsJSON i zapisuje ją do HTMLa na górze
-    function setStreet_showPlace() {
+    function setStreet_giveName() {
         var minimum = 0;
         var maximum = streetsJSON.length - 1;
         var randomNumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
         console.log(streetsJSON[randomNumber]);
-        $('#streetName-label').html(streetsJSON[randomNumber].full_name);    // widok
-        $('#streetName-label').attr('name', streetsJSON[randomNumber].name); // backend
+        // $('#streetName-label').html(streetsJSON[randomNumber].full_name);    // widok
+        // $('#streetName-label').attr('name', streetsJSON[randomNumber].name); // backend
+        streetToGuess = streetsJSON[randomNumber];
+
+        // jeżeli wywołano po klinkięciu "Losuj inną" a nie przy inicjalizacji
+        if ($('svg').length!=0) {
+            // wyczyść wszytkie
+            for (var streetName in streets) {
+                streets[streetName].attr(basicStyle);
+            }
+
+            // pokoloruj losową (streetToGuess ustawiona w setStreet_giveName)
+            streets[streetToGuess.name].animate(pointerStyle, 250, function () {
+                // callback
+            });
+        }
     }
 
+    // przygotowuj odpowiedzi
+    function prepareAnswers() {
+        answers = [];
+        for (var i = 0; i < 3; i++) {
+            var minimum = 0;
+            var maximum = streetsJSON.length - 1;
+            var randomNumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+            if ((i == 0) || (i == 1 && streetsJSON[randomNumber] != answers[i - 1]) || (i == 2 && streetsJSON[randomNumber] != answers[i - 1] && streetsJSON[randomNumber] != answers[i - 2])) {
+                answers[i] = (streetsJSON[randomNumber]);
+            } else {
+                i--;
+                debugger;
+            }
+        }
 
+        // podmień jedną z odpowiedzi odpowiedzią prawidłową
+        var minimum = 0;
+        var maximum = 3 - 1;
+        var randomNumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+        answers[randomNumber] = streetToGuess;
+       
+        $('#1Answer-btn').html(answers[0]["full_name"])
+        $('#2Answer-btn').html(answers[1]["full_name"])
+        $('#3Answer-btn').html(answers[2]["full_name"])
+    }
 
     // rysuje mapę i ustawia funkcję PAN, ZOOM, CLICK
-    function drawMap_showPlace() {
+    function drawMap_giveName() {
         // po imporcie z ReadySetRaphael:
         // (1) zamienić "var [nazwa ulicy]" na tablicowane streets["nazwa ulicy"]
         // (2) zwrócić uwagę na 11 listopada
 
-        // obiekt z pathami svg
-        var streets = {};
 
         // LOADING, RAPHAEL
         var SVG_width = 1550;
@@ -46,7 +101,7 @@
                                     (container.width() - SVG_width * sizes.realZoom + 1 * sizes.viewBox.x * (+(!isVerticalView())))
               , rightLimit = 0
               , topLimit = container.height() - SVG_height * sizes.realZoom > 0 && isVerticalView() ?
-                                    (-((0+ sizes.viewBox.height) * sizes.realZoom) + gutterHeight) / 2 : // sizes.viewBox.y
+                                    (-((0 + sizes.viewBox.height) * sizes.realZoom) + gutterHeight) / 2 : // sizes.viewBox.y
                                     (-((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight)
               , bottomLimit = sizes.height - gutterHeight - (sizes.viewBox.y * sizes.realZoom)
 
@@ -138,155 +193,62 @@
         });
         var initZoom = zoomController.getSizes().realZoom;
 
-        // style
-        var basicStyle = {
-            //fill: "none",
-            stroke: "#000000",
-            "stroke-width": 13,
-            "stroke-linejoin": "round",
-            cursor: "pointer"
-        };
-        var successStyle = {
-            //fill: "none",
-            stroke: "#41b51e",
-            "stroke-width": 13,
-            "stroke-linejoin": "round",
-            cursor: "pointer"
-        };
-        var errorStyle = {
-            //fill: "none",
-            stroke: "#ff6161",
-            "stroke-width": 13,
-            "stroke-linejoin": "round",
-            cursor: "pointer"
-        };
-
         for (var streetName in streets) {
             streets[streetName].attr(basicStyle);
         }
 
         var animationSpeed = 0;
-        var hoverStyle = {
-            fill: "none",
-            stroke: "#5994f2"
+
+
+
+        // wyczyść wszytkie
+        for (var streetName in streets) {
+            streets[streetName].attr(basicStyle);
         }
+
+        // pokoloruj losową (streetToGuess ustawiona w setStreet_giveName)
+        streets[streetToGuess.name].animate(pointerStyle, 250, function () {
+            // callback
+        });
 
         // powiększenie obszaru roboczego
         $('#hideMenu-btn').click(function () {
             setTimeout(function () {
                 $('svg').remove();
-                drawMap_showPlace();
+                drawMap_giveName();
                 //svg.setAttribute("width", container.width());
                 //svg.setAttribute("height", container.height());
             }, 300);
         });
-
-        // najechanie ulicy
-        for (var streetName in streets) {
-            (function (region) {
-                region.attr(basicStyle);
-
-                region[0].addEventListener("mouseover", function () {
-                    region.animate(hoverStyle, animationSpeed);
-                }, true);
-
-                region[0].addEventListener("mouseout", function (a) {
-                    //getStreetById(streets, region.id) != $('#streetName-label').attr('name') && 
-                    if (region.attrs.stroke != successStyle.stroke) {
-                    region.animate(basicStyle, animationSpeed);
-                    }
-                }, true);
-
-            })(streets[streetName]);
-        }
-
-        // kliknięcie ulicy
-        for (var streetName in streets) {
-            streets[streetName].click(function () {
-
-                if ($('#streetName-label').attr('name') == this.data("id")) {
-                    //alert('ok');
-                    var that = this;
-                    that.animate(successStyle, 250, function () {
-                        setTimeout(function () {
-                            that.animate(basicStyle, 250);
-                        }, 900);
-
-                    });
-                    setStreet_showPlace();
-
-                } else {
-                    //alert('błędna odpowiedź');
-                    var that = this;
-                    that.animate(errorStyle, 250, function () {
-                        setTimeout(function () {
-                            that.animate(basicStyle, 250, function () {
-                                that.animate(errorStyle, 250, function () {
-                                    setTimeout(function () {
-                                        that.animate(basicStyle, 250);
-                                    }, 500);
-                                });
-                            });
-                        }, 500);
-                    });
-                }
-
-            });
-        }
-
+   
         // przytrzymanie mapy
         mouse = false;
         $('#map-container').on('mousedown ', function (e) {
             mouse = true;
-          callEvent();
+            callEvent();
         });
         $('#map-container').on('mouseup ', function (e) {
             mouse = false;
-          callEvent();
+            callEvent();
         });
         function callEvent() {
             if (mouse) {
-            // do whatever you want
+                // do whatever you want
                 // it will continue executing until mouse is not released
-            $('#map-container').css("cursor", "move");
-            setTimeout(function(){callEvent()}, 50);
-          }
-          else {
-            $('#map-container').css("cursor", "default");
-          }
-          return;
+                $('#map-container').css("cursor", "move");
+                setTimeout(function () { callEvent() }, 50);
+            }
+            else {
+                $('#map-container').css("cursor", "default");
+            }
+            return;
         }
 
         // kliknięcie "Losuj inną"
-        $('#setNewStreetShowPlace-btn').off("click").click(function () {
-            setStreet_showPlace();
+        $('#setNewStreetGiveName-btn').off("click").click(function () {
+            setStreet_giveName();
+            prepareAnswers();
         });
-
-        $('#getHint-btn').click(function () {
-            document.getElementById("setNewStreetShowPlace-btn").disabled = true;
-            zoomController.resetZoom();
-            zoomController.resetPan();
-
-            var animationSpeedHint = 700;
-
-            var hintStyle = {
-                //fill: "none",
-                stroke: "#ffa500",
-                "stroke-width": 13,
-                "stroke-linejoin": "round",
-                cursor: "pointer"
-            };
-
-            streets[$('#streetName-label').attr('name')].animate(hintStyle, animationSpeedHint, function () {
-                setTimeout(function () {
-                    streets[$('#streetName-label').attr('name')].animate(basicStyle, animationSpeedHint);
-                    document.getElementById("setNewStreetShowPlace-btn").disabled = false;
-                }, 700);
-                // 
-            });
-
-        });
-
     }
 
     // przystosowuje urządzenia mobilne
@@ -309,23 +271,24 @@
 
 
     // load other singletons. Other singleton contain some logic which can be packed, i.e. modal	
-    function ShowPlace() {
+    function GiveName() {
         //this.otherSingleton = new OtherSingleton();
     }
 
-    ShowPlace.prototype.init = function (params) {
+    GiveName.prototype.init = function (params) {
         var that = this;
         // ******** ALL ACTION ON SITE GOES HERE *********
         $.getJSON("./data/streets.json", function (data) {
             streetsJSON = data;
-            setStreet_showPlace();
-            drawMap_showPlace();
+            setStreet_giveName();
+            drawMap_giveName();
+            prepareAnswers();
             if (isMobile()) {
                 mobileAdapt_showPlace();
             }
             window.addEventListener('resize', function () {
                 $('svg').remove();
-                drawMap_showPlace();
+                drawMap_giveName();
             }, true);
         });
     }
@@ -334,10 +297,10 @@
     ///////////////////////////////////////////////////
     var _instance;
     var _static = {
-        name: "ShowPlace",
+        name: "GiveName",
         getInstance: function () {
             if (_instance === undefined) {
-                _instance = new ShowPlace();
+                _instance = new GiveName();
             }
             return _instance;
         }

@@ -48,7 +48,13 @@ svg{
 
 }
 
-#setNewStreet-btn{
+#setNewStreetShowPlace-btn{
+    display: inline; 
+    margin-right:0;
+    float: right;
+}
+
+#setNewStreetGiveName-btn{
     display: inline; 
     margin-right:0;
     float: right;
