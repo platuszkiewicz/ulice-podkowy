@@ -47,6 +47,10 @@
 
     // przygotowuj odpowiedzi
     function prepareAnswers() {
+
+      $('button').removeClass('btn-danger');
+      $('button').removeClass('btn-success');
+
         answers = [];
         for (var i = 0; i < 3; i++) {
             var minimum = 0;
@@ -67,8 +71,24 @@
         answers[randomNumber] = streetToGuess;
        
         $('#1Answer-btn').html(answers[0]["full_name"])
+        $('#1Answer-btn').prop('name', answers[0]["name"])
         $('#2Answer-btn').html(answers[1]["full_name"])
+        $('#2Answer-btn').prop('name', answers[1]["name"])
         $('#3Answer-btn').html(answers[2]["full_name"])
+        $('#3Answer-btn').prop('name', answers[2]["name"])
+
+        $('button.answer').off("click").click(function () {
+          if ($(this).prop('name') == streetToGuess.name) {
+            $(this).addClass('btn-success');
+            setTimeout(function () {
+              setStreet_giveName();
+              prepareAnswers();
+            }, 1250)
+          }
+          else {
+            $(this).addClass('btn-danger');
+          }
+        });
     }
 
     // rysuje mapę i ustawia funkcję PAN, ZOOM, CLICK
