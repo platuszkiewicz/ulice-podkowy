@@ -272,9 +272,9 @@
     }
 
     // przystosowuje urządzenia mobilne
-    function mobileAdapt_showPlace() {
+    function mobileAdapt_giveName() {
         $('#hideMenu-btn').html('<>');
-        $('#streetName-label-parent')["0"].childNodes["0"].data = 'Wskaż ulicę: '
+        $('#streetName-label-parent')["0"].childNodes["0"].data = ''
     }
     // pobiera ulice dla danego id
     function getStreetById(streets, id) {
@@ -304,7 +304,7 @@
             drawMap_giveName();
             prepareAnswers();
             if (isMobile()) {
-                mobileAdapt_showPlace();
+                mobileAdapt_giveName();
             }
             window.addEventListener('resize', function () {
                 $('svg').remove();
