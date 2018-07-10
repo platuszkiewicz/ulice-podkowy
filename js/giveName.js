@@ -275,6 +275,7 @@
     function mobileAdapt_giveName() {
         $('#hideMenu-btn').html('<>');
         $('#streetName-label-parent')["0"].childNodes["0"].data = ''
+        $('#setNewStreetGiveName-btn').html(' <i class="fa fa-refresh fa-1x" aria-hidden="true"></i>');
     }
     // pobiera ulice dla danego id
     function getStreetById(streets, id) {

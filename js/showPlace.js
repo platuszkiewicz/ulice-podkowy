@@ -292,7 +292,9 @@
     // przystosowuje urządzenia mobilne
     function mobileAdapt_showPlace() {
         $('#hideMenu-btn').html('<>');
-        $('#streetName-label-parent')["0"].childNodes["0"].data = 'Wskaż ulicę: '
+        $('#streetName-label-parent')["0"].childNodes["0"].data = 'Wskaż ulicę: ';
+        $('#setNewStreetShowPlace-btn').html(' <i class="fa fa-refresh fa-1x" aria-hidden="true"></i>');
+
     }
     // pobiera ulice dla danego id
     function getStreetById(streets, id) {
