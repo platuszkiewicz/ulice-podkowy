@@ -18,6 +18,11 @@ footer {
     margin-bottom: 10px;
 }
 
+.btn-light:not(.btn-danger):not(.btn-success):hover{
+    /*-webkit-appearance: none;*/
+    background-color:rgb(200, 200, 200)!important;
+}
+
 #info-click{
     /*position: fixed;
     bottom: 0px;

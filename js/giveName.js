@@ -56,8 +56,8 @@
             var minimum = 0;
             var maximum = streetsJSON.length - 1;
             var randomNumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
-            if ((i == 0) || (i == 1 && streetsJSON[randomNumber] != answers[i - 1]) || (i == 2 && streetsJSON[randomNumber] != answers[i - 1] && streetsJSON[randomNumber] != answers[i - 2])) {
-                answers[i] = (streetsJSON[randomNumber]);
+            if (((i == 0) || (i == 1 && streetsJSON[randomNumber] != answers[i - 1]) || (i == 2 && streetsJSON[randomNumber] != answers[i - 1] && streetsJSON[randomNumber] != answers[i - 2])) && streetsJSON[randomNumber] != streetToGuess) {
+              answers[i] = (streetsJSON[randomNumber]);
             } else {
                 i--;
                 debugger;
