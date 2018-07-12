@@ -1,93 +1,560 @@
-﻿[{"id":0,"full_name":"11 Listopada","name":"11_listopada"},
-{"id":1,"full_name":"Adama Mickiewicza","name":"adama_mickiewicza"},
-{"id":2,"full_name":"Akacjowa","name":"akacjowa"},
-{"id":3,"full_name":"Bażantów","name":"bazantow"},
-{"id":4,"full_name":"Bluszczowa","name":"bluszczowa"},
-{"id":5,"full_name":"Błońska","name":"blonska"},
-{"id":6,"full_name":"Bobrowa","name":"bobrowa"},
-{"id":7,"full_name":"Bolesława Prusa","name":"boleslawa_prusa"},
-{"id":8,"full_name":"Borsucza","name":"borsucza"},
-{"id":9,"full_name":"Brwinowska","name":"brwinowska"},
-{"id":10,"full_name":"Brzozowa","name":"brzozowa"},
-{"id":11,"full_name":"Bukowa","name":"bukowa"},
-{"id":12,"full_name":"Cicha","name":"cicha"},
-{"id":13,"full_name":"Czeremchowa","name":"czeremchowa"},
-{"id":14,"full_name":"Dębowa","name":"debowa"},
-{"id":15,"full_name":"Dzików","name":"dzikow"},
-{"id":16,"full_name":"Głogów","name":"glogow"},
-{"id":17,"full_name":"Główna","name":"glowna"},
-{"id":18,"full_name":"Gołębia","name":"golebia"},
-{"id":19,"full_name":"Grabowa","name":"grabowa"},
-{"id":20,"full_name":"Grodziska","name":"grodziska"},
-{"id":21,"full_name":"Helenowska","name":"helenowska"},
-{"id":22,"full_name":"Henryka Sienkiewicza","name":"henryka_sienkiewicza"},
-{"id":23,"full_name":"Irysowa","name":"irysowa"},
-{"id":24,"full_name":"Jałowcowa","name":"jalowcowa"},
-{"id":25,"full_name":"Jana Pawła II","name":"jana_pawla_ii"},
-{"id":26,"full_name":"Jarosława Iwaszkiewicza","name":"jaroslawa_iwaszkiewicza"},
-{"id":27,"full_name":"Jaskółcza","name":"jaskolcza"},
-{"id":28,"full_name":"Jastrzębia","name":"jastrzebia"},
-{"id":29,"full_name":"Jaśminowa","name":"jasminowa"},
-{"id":30,"full_name":"Jaworowa","name":"jaworowa"},
-{"id":31,"full_name":"Jelenia","name":"jelenia"},
-{"id":32,"full_name":"Jeża","name":"jeza"},
-{"id":33,"full_name":"Jodłowa","name":"jodlowa"},
-{"id":34,"full_name":"Juliana Ejsmonda","name":"juliana_ejsmonda"},
-{"id":35,"full_name":"Juliusza Słowackiego","name":"juliusza_slowackiego"},
-{"id":36,"full_name":"Kalinowa","name":"kalinowa"},
-{"id":37,"full_name":"Kasztanowa","name":"kasztanowa"},
-{"id":38,"full_name":"Klonowa","name":"klonowa"},
-{"id":39,"full_name":"Kolejowa","name":"kolejowa"},
-{"id":40,"full_name":"Konwalii","name":"konwalii"},
-{"id":41,"full_name":"Kościelna","name":"koscielna"},
-{"id":42,"full_name":"Krasek","name":"krasek"},
-{"id":43,"full_name":"Krecia","name":"krecia"},
-{"id":44,"full_name":"Królicza","name":"krolicza"},
-{"id":45,"full_name":"Kukułek","name":"kukulek"},
-{"id":46,"full_name":"Kwiatowa","name":"kwiatowa"},
-{"id":47,"full_name":"Leśna","name":"lesna"},
-{"id":48,"full_name":"Lipowa","name":"lipowa"},
-{"id":49,"full_name":"Lisia","name":"lisia"},
-{"id":50,"full_name":"Lotnicza","name":"lotnicza"},
-{"id":51,"full_name":"Łosia","name":"losia"},
-{"id":52,"full_name":"Miejska","name":"miejska"},
-{"id":53,"full_name":"Młochowska","name":"mlochowska"},
-{"id":54,"full_name":"Modrzewiowa","name":"modrzewiowa"},
-{"id":55,"full_name":"Myśliwska","name":"mysliwska"},
-{"id":56,"full_name":"Ogrodowa","name":"ogrodowa"},
-{"id":57,"full_name":"Orla","name":"orla"},
-{"id":58,"full_name":"Orzechowa","name":"orzechowa"},
-{"id":59,"full_name":"Paproci","name":"paproci"},
-{"id":60,"full_name":"Parkowa","name":"parkowa"},
-{"id":61,"full_name":"Piastowska","name":"piastowska"},
-{"id":62,"full_name":"Podleśna","name":"podlesna"},
-{"id":63,"full_name":"Ptasia","name":"ptasia"},
-{"id":64,"full_name":"Różana","name":"rozana"},
-{"id":65,"full_name":"Rysia","name":"rysia"},
-{"id":66,"full_name":"Sarnia","name":"sarnia"},
-{"id":67,"full_name":"Sasanek","name":"sasanek"},
-{"id":68,"full_name":"Sępów","name":"sepow"},
-{"id":69,"full_name":"Słowicza","name":"slowicza"},
-{"id":70,"full_name":"Sokola","name":"sokola"},
-{"id":71,"full_name":"Sosnowa","name":"sosnowa"},
-{"id":72,"full_name":"Sowia","name":"sowia"},
-{"id":73,"full_name":"Sójek","name":"sojek"},
-{"id":74,"full_name":"Stanisława Lilpopa","name":"stanislawa_lilpopa"},
-{"id":75,"full_name":"Stefana Żeromskiego","name":"stefana_zeromskiego"},
-{"id":76,"full_name":"Storczyków","name":"storczykow"},
-{"id":77,"full_name":"Szczygla","name":"szczygla"},
-{"id":78,"full_name":"Szpaków","name":"szpakow"},
-{"id":79,"full_name":"Świerkowa","name":"swierkowa"},
-{"id":80,"full_name":"Topolowa","name":"topolowa"},
-{"id":81,"full_name":"Warszawska","name":"warszawska"},
-{"id":82,"full_name":"Wiązowa","name":"wiazowa"},
-{"id":83,"full_name":"Wierzbowa","name":"wierzbowa"},
-{"id":84,"full_name":"Wiewiórek","name":"wiewiorek"},
-{"id":85,"full_name":"Wilcza","name":"wilcza"},
-{"id":86,"full_name":"Władysława Stanisława Reymonta","name":"wladyslawa_stanislawa_reymonta"},
-{"id":87,"full_name":"Wróbla","name":"wrobla"},
-{"id":88,"full_name":"Wrzosowa","name":"wrzosowa"},
-{"id":89,"full_name":"Wschodnia","name":"wschodnia"},
-{"id":90,"full_name":"Zachodnia","name":"zachodnia"},
-{"id":91,"full_name":"Zamkowa","name":"zamkowa"},
-{"id":92,"full_name":"Zygmunta Krasińskiego","name":"zygmunta_krasinskiego"}]
+﻿[
+  {
+    "id": 0,
+    "full_name": "11 Listopada",
+    "simple_name": "11 Listopada",
+    "name": "11_listopada"
+  },
+  {
+    "id": 1,
+    "full_name": "Adama Mickiewicza",
+    "simple_name": "Mickiewicza",
+    "name": "adama_mickiewicza"
+  },
+  {
+    "id": 2,
+    "full_name": "Akacjowa",
+    "simple_name": "Akacjowa",
+    "name": "akacjowa"
+  },
+  {
+    "id": 3,
+    "full_name": "Bażantów",
+    "simple_name": "Bażantów",
+    "name": "bazantow"
+  },
+  {
+    "id": 4,
+    "full_name": "Bluszczowa",
+    "simple_name": "Bluszczowa",
+    "name": "bluszczowa"
+  },
+  {
+    "id": 5,
+    "full_name": "Błońska",
+    "simple_name": "Błońska",
+    "name": "błonska"
+  },
+  {
+    "id": 6,
+    "full_name": "Bobrowa",
+    "simple_name": "Bobrowa",
+    "name": "bobrowa"
+  },
+  {
+    "id": 7,
+    "full_name": "Bolesława Prusa",
+    "simple_name": "Prusa",
+    "name": "boleslawa_prusa"
+  },
+  {
+    "id": 8,
+    "full_name": "Borsucza",
+    "simple_name": "Borsucza",
+    "name": "borsucza"
+  },
+  {
+    "id": 9,
+    "full_name": "Brwinowska",
+    "simple_name": "Brwinowska",
+    "name": "brwinowska"
+  },
+  {
+    "id": 10,
+    "full_name": "Brzozowa",
+    "simple_name": "Brzozowa",
+    "name": "brzozowa"
+  },
+  {
+    "id": 11,
+    "full_name": "Bukowa",
+    "simple_name": "Bukowa",
+    "name": "bukowa"
+  },
+  {
+    "id": 12,
+    "full_name": "Cicha",
+    "simple_name": "Cicha",
+    "name": "cicha"
+  },
+  {
+    "id": 13,
+    "full_name": "Czeremchowa",
+    "simple_name": "Czeremchowa",
+    "name": "czeremchowa"
+  },
+  {
+    "id": 14,
+    "full_name": "Dębowa",
+    "simple_name": "Dębowa",
+    "name": "debowa"
+  },
+  {
+    "id": 15,
+    "full_name": "Dzików",
+    "simple_name": "Dzików",
+    "name": "dzikow"
+  },
+  {
+    "id": 16,
+    "full_name": "Głogów",
+    "simple_name": "Głogów",
+    "name": "glogow"
+  },
+  {
+    "id": 17,
+    "full_name": "Główna",
+    "simple_name": "Główna",
+    "name": "glowna"
+  },
+  {
+    "id": 18,
+    "full_name": "Gołębia",
+    "simple_name": "Gołębia",
+    "name": "golebia"
+  },
+  {
+    "id": 19,
+    "full_name": "Grabowa",
+    "simple_name": "Grabowa",
+    "name": "grabowa"
+  },
+  {
+    "id": 20,
+    "full_name": "Grodziska",
+    "simple_name": "Grodziska",
+    "name": "grodziska"
+  },
+  {
+    "id": 21,
+    "full_name": "Helenowska",
+    "simple_name": "Helenowska",
+    "name": "helenowska"
+  },
+  {
+    "id": 22,
+    "full_name": "Henryka Sienkiewicza",
+    "simple_name": "Sienkiewicza",
+    "name": "henryka_sienkiewicza"
+  },
+  {
+    "id": 23,
+    "full_name": "Irysowa",
+    "simple_name": "Irysowa",
+    "name": "irysowa"
+  },
+  {
+    "id": 24,
+    "full_name": "Jałowcowa",
+    "simple_name": "Jałowcowa",
+    "name": "jalowcowa"
+  },
+  {
+    "id": 25,
+    "full_name": "Jana Pawła II",
+    "simple_name": "Jana Pawła II",
+    "name": "jana_pawła_ii"
+  },
+  {
+    "id": 26,
+    "full_name": "Jarosława Iwaszkiewicza",
+    "simple_name": "Iwaszkiewicza",
+    "name": "jaroslawa_iwaszkiewicza"
+  },
+  {
+    "id": 27,
+    "full_name": "Jaskółcza",
+    "simple_name": "Jaskółcza",
+    "name": "jaskolcza"
+  },
+  {
+    "id": 28,
+    "full_name": "Jastrzębia",
+    "simple_name": "Jastrzębia",
+    "name": "jastrzebia"
+  },
+  {
+    "id": 29,
+    "full_name": "Jaśminowa",
+    "simple_name": "Jaśminowa",
+    "name": "jasminowa"
+  },
+  {
+    "id": 30,
+    "full_name": "Jaworowa",
+    "simple_name": "Jaworowa",
+    "name": "jaworowa"
+  },
+  {
+    "id": 31,
+    "full_name": "Jelenia",
+    "simple_name": "Jelenia",
+    "name": "jelenia"
+  },
+  {
+    "id": 32,
+    "full_name": "Jeża",
+    "simple_name": "Jeża",
+    "name": "jeza"
+  },
+  {
+    "id": 33,
+    "full_name": "Jodłowa",
+    "simple_name": "Jodłowa",
+    "name": "jodlowa"
+  },
+  {
+    "id": 34,
+    "full_name": "Juliana Ejsmonda",
+    "simple_name": "Ejsmonda",
+    "name": "juliana_ejsmonda"
+  },
+  {
+    "id": 35,
+    "full_name": "Juliusza Słowackiego",
+    "simple_name": "Słowackiego",
+    "name": "juliusza_slowackiego"
+  },
+  {
+    "id": 36,
+    "full_name": "Kalinowa",
+    "simple_name": "Kalinowa",
+    "name": "kalinowa"
+  },
+  {
+    "id": 37,
+    "full_name": "Kasztanowa",
+    "simple_name": "Kasztanowa",
+    "name": "kasztanowa"
+  },
+  {
+    "id": 38,
+    "full_name": "Klonowa",
+    "simple_name": "Klonowa",
+    "name": "klonowa"
+  },
+  {
+    "id": 39,
+    "full_name": "Kolejowa",
+    "simple_name": "Kolejowa",
+    "name": "kolejowa"
+  },
+  {
+    "id": 40,
+    "full_name": "Konwalii",
+    "simple_name": "Konwalii",
+    "name": "konwalii"
+  },
+  {
+    "id": 41,
+    "full_name": "Kościelna",
+    "simple_name": "Kościelna",
+    "name": "koscielna"
+  },
+  {
+    "id": 42,
+    "full_name": "Krasek",
+    "simple_name": "Krasek",
+    "name": "krasek"
+  },
+  {
+    "id": 43,
+    "full_name": "Krecia",
+    "simple_name": "Krecia",
+    "name": "krecia"
+  },
+  {
+    "id": 44,
+    "full_name": "Królicza",
+    "simple_name": "Królicza",
+    "name": "krolicza"
+  },
+  {
+    "id": 45,
+    "full_name": "Kukułek",
+    "simple_name": "Kukułek",
+    "name": "kukulek"
+  },
+  {
+    "id": 46,
+    "full_name": "Kwiatowa",
+    "simple_name": "Kwiatowa",
+    "name": "kwiatowa"
+  },
+  {
+    "id": 47,
+    "full_name": "Leśna",
+    "simple_name": "Leśna",
+    "name": "lesna"
+  },
+  {
+    "id": 48,
+    "full_name": "Lipowa",
+    "simple_name": "Lipowa",
+    "name": "lipowa"
+  },
+  {
+    "id": 49,
+    "full_name": "Lisia",
+    "simple_name": "Lisia",
+    "name": "lisia"
+  },
+  {
+    "id": 50,
+    "full_name": "Lotnicza",
+    "simple_name": "Lotnicza",
+    "name": "lotnicza"
+  },
+  {
+    "id": 51,
+    "full_name": "Łosia",
+    "simple_name": "Łosia",
+    "name": "losia"
+  },
+  {
+    "id": 52,
+    "full_name": "Miejska",
+    "simple_name": "Miejska",
+    "name": "miejska"
+  },
+  {
+    "id": 53,
+    "full_name": "Młochowska",
+    "simple_name": "Młochowska",
+    "name": "mlochowska"
+  },
+  {
+    "id": 54,
+    "full_name": "Modrzewiowa",
+    "simple_name": "Modrzewiowa",
+    "name": "modrzewiowa"
+  },
+  {
+    "id": 55,
+    "full_name": "Myśliwska",
+    "simple_name": "Myśliwska",
+    "name": "mysliwska"
+  },
+  {
+    "id": 56,
+    "full_name": "Ogrodowa",
+    "simple_name": "Ogrodowa",
+    "name": "ogrodowa"
+  },
+  {
+    "id": 57,
+    "full_name": "Orla",
+    "simple_name": "Orla",
+    "name": "orla"
+  },
+  {
+    "id": 58,
+    "full_name": "Orzechowa",
+    "simple_name": "Orzechowa",
+    "name": "orzechowa"
+  },
+  {
+    "id": 59,
+    "full_name": "Paproci",
+    "simple_name": "Paproci",
+    "name": "paproci"
+  },
+  {
+    "id": 60,
+    "full_name": "Parkowa",
+    "simple_name": "Parkowa",
+    "name": "parkowa"
+  },
+  {
+    "id": 61,
+    "full_name": "Piastowska",
+    "simple_name": "Piastowska",
+    "name": "piastowska"
+  },
+  {
+    "id": 62,
+    "full_name": "Podleśna",
+    "simple_name": "Podleśna",
+    "name": "podlesna"
+  },
+  {
+    "id": 63,
+    "full_name": "Ptasia",
+    "simple_name": "Ptasia",
+    "name": "ptasia"
+  },
+  {
+    "id": 64,
+    "full_name": "Różana",
+    "simple_name": "Różana",
+    "name": "rozana"
+  },
+  {
+    "id": 65,
+    "full_name": "Rysia",
+    "simple_name": "Rysia",
+    "name": "rysia"
+  },
+  {
+    "id": 66,
+    "full_name": "Sarnia",
+    "simple_name": "Sarnia",
+    "name": "sarnia"
+  },
+  {
+    "id": 67,
+    "full_name": "Sasanek",
+    "simple_name": "Sasanek",
+    "name": "sasanek"
+  },
+  {
+    "id": 68,
+    "full_name": "Sępów",
+    "simple_name": "Sępów",
+    "name": "sepow"
+  },
+  {
+    "id": 69,
+    "full_name": "Słowicza",
+    "simple_name": "Słowicza",
+    "name": "slowicza"
+  },
+  {
+    "id": 70,
+    "full_name": "Sokola",
+    "simple_name": "Sokola",
+    "name": "sokola"
+  },
+  {
+    "id": 71,
+    "full_name": "Sosnowa",
+    "simple_name": "Sosnowa",
+    "name": "sosnowa"
+  },
+  {
+    "id": 72,
+    "full_name": "Sowia",
+    "simple_name": "Sowia",
+    "name": "sowia"
+  },
+  {
+    "id": 73,
+    "full_name": "Sójek",
+    "simple_name": "Sójek",
+    "name": "sojek"
+  },
+  {
+    "id": 74,
+    "full_name": "Stanisława Lilpopa",
+    "simple_name": "Lilpopa",
+    "name": "stanislawa_lilpopa"
+  },
+  {
+    "id": 75,
+    "full_name": "Stefana Żeromskiego",
+    "simple_name": "Żeromskiego",
+    "name": "stefana_zeromskiego"
+  },
+  {
+    "id": 76,
+    "full_name": "Storczyków",
+    "simple_name": "Storczyków",
+    "name": "storczykow"
+  },
+  {
+    "id": 77,
+    "full_name": "Szczygla",
+    "simple_name": "Szczygla",
+    "name": "szczygla"
+  },
+  {
+    "id": 78,
+    "full_name": "Szpaków",
+    "simple_name": "Szpaków",
+    "name": "szpakow"
+  },
+  {
+    "id": 79,
+    "full_name": "Świerkowa",
+    "simple_name": "Świerkowa",
+    "name": "swierkowa"
+  },
+  {
+    "id": 80,
+    "full_name": "Topolowa",
+    "simple_name": "Topolowa",
+    "name": "topolowa"
+  },
+  {
+    "id": 81,
+    "full_name": "Warszawska",
+    "simple_name": "Warszawska",
+    "name": "warszawska"
+  },
+  {
+    "id": 82,
+    "full_name": "Wiązowa",
+    "simple_name": "Wiązowa",
+    "name": "wiazowa"
+  },
+  {
+    "id": 83,
+    "full_name": "Wierzbowa",
+    "simple_name": "Wierzbowa",
+    "name": "wierzbowa"
+  },
+  {
+    "id": 84,
+    "full_name": "Wiewiórek",
+    "simple_name": "Wiewiórek",
+    "name": "wiewiorek"
+  },
+  {
+    "id": 85,
+    "full_name": "Wilcza",
+    "simple_name": "Wilcza",
+    "name": "wilcza"
+  },
+  {
+    "id": 86,
+    "full_name": "Władysława Stanisława Reymonta",
+    "simple_name": "Reymonta",
+    "name": "wladyslawa_stanislawa_reymonta"
+  },
+  {
+    "id": 87,
+    "full_name": "Wróbla",
+    "simple_name": "Wróbla",
+    "name": "wrobla"
+  },
+  {
+    "id": 88,
+    "full_name": "Wrzosowa",
+    "simple_name": "Wrzosowa",
+    "name": "wrzosowa"
+  },
+  {
+    "id": 89,
+    "full_name": "Wschodnia",
+    "simple_name": "Wschodnia",
+    "name": "wschodnia"
+  },
+  {
+    "id": 90,
+    "full_name": "Zachodnia",
+    "simple_name": "Zachodnia",
+    "name": "zachodnia"
+  },
+  {
+    "id": 91,
+    "full_name": "Zamkowa",
+    "simple_name": "Zamkowa",
+    "name": "zamkowa"
+  },
+  {
+    "id": 92,
+    "full_name": "Zygmunta Krasińskiego",
+    "simple_name": "Krasińskiego",
+    "name": "zygmunta_krasinskiego"
+  }
+]

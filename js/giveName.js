@@ -70,11 +70,13 @@
         var randomNumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
         answers[randomNumber] = streetToGuess;
        
-        $('#1Answer-btn').html(answers[0]["full_name"])
+        var mobileVersion = isMobile();
+
+        $('#1Answer-btn').html(mobileVersion ? answers[0]["simple_name"] : answers[0]["full_name"])
         $('#1Answer-btn').prop('name', answers[0]["name"])
-        $('#2Answer-btn').html(answers[1]["full_name"])
+        $('#2Answer-btn').html( mobileVersion ? answers[1]["simple_name"] : answers[1]["full_name"])
         $('#2Answer-btn').prop('name', answers[1]["name"])
-        $('#3Answer-btn').html(answers[2]["full_name"])
+        $('#3Answer-btn').html(mobileVersion ? answers[2]["simple_name"] : answers[2]["full_name"])
         $('#3Answer-btn').prop('name', answers[2]["name"])
 
         $('button.answer').off("click").click(function () {
