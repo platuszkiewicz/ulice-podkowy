@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
     // usuń reklamy
     setTimeout(function () {
-        removeAds();
+        //removeAds();
     }, 400);
 
     // ??
@@ -26,7 +26,7 @@
         $('#content-subpage').load('./partials/showPlace.html', null, function () {
             ShowPlace.getInstance().init(); // On Load
             setTimeout(function () {
-                removeAds();
+               // removeAds();
             }, 400);
         });
     });
@@ -35,7 +35,7 @@
         $('#content-subpage').load('./partials/giveName.html', null, function () {
             GiveName.getInstance().init(); // On Load
             setTimeout(function () {
-                removeAds();
+               // removeAds();
             }, 400);
         });
     });
