@@ -20,7 +20,7 @@ footer {
 
 .btn-light:not(.btn-danger):not(.btn-success):hover{
     /*-webkit-appearance: none;*/
-    background-color:rgb(200, 200, 200)!important;
+    /*background-color:rgb(200, 200, 200)!important;*/
 }
 
 #info-click{
