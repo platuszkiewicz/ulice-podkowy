@@ -4,15 +4,24 @@
         //removeAds();
     }, 400);
 
-    // ??
+    // rozwijanie/chowanie menu
     $('[data-toggle=offcanvas]').click(function () {
         if ($('.sidebar-offcanvas').css('background-color') == 'rgb(255, 255, 255)') {
+            // chowaj
             $('.list-group-item').attr('tabindex', '-1');
         } else {
+            // rozwin
             $('.list-group-item').attr('tabindex', '');
         }
         $('.row-offcanvas').toggleClass('active');
 
+    });
+
+    // chowaj menu mobilne po wybraniu innej grupy
+    $('.list-group-item').click(function () {
+        if (isMobile()) {
+            $('#hideMenu-btn').click();
+        }
     });
 
     // style aktywnych linków sidebara
@@ -26,7 +35,7 @@
         $('#content-subpage').load('./partials/showPlace.html', null, function () {
             ShowPlace.getInstance().init(); // On Load
             setTimeout(function () {
-               // removeAds();
+                // removeAds();
             }, 400);
         });
     });
@@ -35,7 +44,7 @@
         $('#content-subpage').load('./partials/giveName.html', null, function () {
             GiveName.getInstance().init(); // On Load
             setTimeout(function () {
-               // removeAds();
+                // removeAds();
             }, 400);
         });
     });
