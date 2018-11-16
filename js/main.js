@@ -18,11 +18,11 @@
     });
 
     // chowaj menu mobilne po wybraniu innej grupy
-    $('.list-group-item').click(function () {
-        if (isMobile()) {
-            $('#hideMenu-btn').click();
-        }
-    });
+    //$('.list-group-item').click(function () {
+    //    if (isMobile()) {
+    //        $('#hideMenu-btn').click();
+    //    }
+    //});
 
     // style aktywnych linków sidebara
     $('.list-group-item').click(function () {

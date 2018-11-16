@@ -7,8 +7,10 @@
         var minimum = 0;
         var maximum = streetsJSON.length - 1;
         var randomNumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
-        console.log(streetsJSON[randomNumber]);
-        $('#streetName-label').html(streetsJSON[randomNumber].full_name);    // widok
+      console.log(streetsJSON[randomNumber]);
+      var mobileVersion = isMobile();
+      $('#streetName-label').html(mobileVersion ? streetsJSON[randomNumber].simple_name : streetsJSON[randomNumber].full_name);    // widok
+
         $('#streetName-label').attr('name', streetsJSON[randomNumber].name); // backend
     }
 

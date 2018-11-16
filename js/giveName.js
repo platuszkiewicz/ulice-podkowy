@@ -309,7 +309,7 @@
             if (isMobile()) {
                 mobileAdapt_giveName();
             }
-            window.addEventListener('resize', function () {
+          window.addEventListener('resize', function () {
                 $('svg').remove();
                 drawMap_giveName();
             }, true);
