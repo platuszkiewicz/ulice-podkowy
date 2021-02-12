@@ -81,10 +81,27 @@
 
         $('button.answer').off("click").click(function () {
           if ($(this).prop('name') == streetToGuess.name) {
-            $(this).addClass('btn-success');
+              $(this).addClass('btn-success');
+              if (randomNumber === 0) {
+                  document.getElementById("2Answer-btn").disabled = true;
+                  document.getElementById("3Answer-btn").disabled = true;
+                  document.getElementById("setNewStreetGiveName-btn").disabled = true;
+              } else if (randomNumber === 1) {
+                  document.getElementById("1Answer-btn").disabled = true;
+                  document.getElementById("3Answer-btn").disabled = true;
+                  document.getElementById("setNewStreetGiveName-btn").disabled = true;
+              } else {
+                  document.getElementById("1Answer-btn").disabled = true;
+                  document.getElementById("2Answer-btn").disabled = true;
+                  document.getElementById("setNewStreetGiveName-btn").disabled = true;
+              }
             setTimeout(function () {
               setStreet_giveName();
-              prepareAnswers();
+                prepareAnswers();
+                document.getElementById("1Answer-btn").disabled = false;
+                document.getElementById("2Answer-btn").disabled = false;
+                document.getElementById("3Answer-btn").disabled = false;
+                document.getElementById("setNewStreetGiveName-btn").disabled = false;
             }, 1250)
           }
           else {
@@ -312,7 +329,14 @@
           window.addEventListener('resize', function () {
                 $('svg').remove();
                 drawMap_giveName();
-            }, true);
+          }, true);
+            // mobileHoverFix
+            $("button:not(.answer)").on("touchstart", function () {
+                $(this).removeClass("mobileHoverFix");
+            });
+            $("button:not(.answer)").on("touchend", function () {
+                $(this).addClass("mobileHoverFix");
+            });
         });
     }
     ///////////////////////////////////////////////////

@@ -331,6 +331,13 @@
                 $('svg').remove();
                 drawMap_showPlace();
             }, true);
+            // mobileHoverFix
+            $("button:not(.answer)").on("touchstart", function () {
+                $(this).removeClass("mobileHoverFix");
+            });
+            $("button:not(.answer)").on("touchend", function () {
+                $(this).addClass("mobileHoverFix");
+            });
         });
     }
     ///////////////////////////////////////////////////

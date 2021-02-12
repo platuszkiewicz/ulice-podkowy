@@ -184,3 +184,9 @@ svg{
     width: 50%; /* 6 columns */
   }
 }
+
+.mobileHoverFix:hover,
+.mobileHoverFix.hover {
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
