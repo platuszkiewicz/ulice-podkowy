@@ -75,12 +75,12 @@ function isVerticalView() {
 }
 
 function removeAds() {
-   // if ($("body").children().length != 1) { // if localhost
-   //     while ($("body").children().length != 2) {
-   //         $("body").children()[$("body").children().length - 1].remove();
-   //     }
-   //     $.each($('center'), function (name, val) {
-   //         $(val).remove();
-   //     });
-   // }
+    if ($("body").children().length != 1) { // if localhost
+        while ($("body").children().length != 2) {
+            $("body").children()[$("body").children().length - 1].remove();
+        }
+        $.each($('center'), function (name, val) {
+            $(val).remove();
+        });
+    }
 }
