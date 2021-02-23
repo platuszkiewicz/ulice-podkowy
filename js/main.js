@@ -51,13 +51,13 @@
 
     $('#info-click').click(function () {
         $('#content-subpage').load('./partials/info.html', null, function () {
-            //alert('[info] w trakcie implementacji');
+
         });
     });
 
     // domyślnie po załadowaniu strony
-    $('#content-subpage').load('./partials/showPlace.html', null, function () {
-        ShowPlace.getInstance().init(); // On Load
+    $('#content-subpage').load('./partials/giveName.html', null, function () {
+        GiveName.getInstance().init(); // On Load
     });
 
     // usuń focus po kliknięciu guzików
