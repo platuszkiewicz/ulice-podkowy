@@ -9,14 +9,14 @@
     var basicStyle = {
         //fill: "none",
         stroke: "#000000",
-        "stroke-width": 13,
+        "stroke-width": 15,
         "stroke-linejoin": "round",
         //cursor: "pointer"
     };
     var pointerStyle = {
         //fill: "none",
         stroke: "#41b51e",
-        "stroke-width": 13,
+        "stroke-width": 23,
         "stroke-linejoin": "round",
         cursor: "pointer"
     };

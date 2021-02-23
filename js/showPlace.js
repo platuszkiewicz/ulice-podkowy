@@ -144,21 +144,21 @@
         var basicStyle = {
             //fill: "none",
             stroke: "#000000",
-            "stroke-width": 13,
+            "stroke-width": 15,
             "stroke-linejoin": "round",
             cursor: "pointer"
         };
         var successStyle = {
             //fill: "none",
             stroke: "#41b51e",
-            "stroke-width": 13,
+            "stroke-width": 23,
             "stroke-linejoin": "round",
             cursor: "pointer"
         };
         var errorStyle = {
             //fill: "none",
             stroke: "#ff6161",
-            "stroke-width": 13,
+            "stroke-width": 23,
             "stroke-linejoin": "round",
             cursor: "pointer"
         };
@@ -170,7 +170,8 @@
         var animationSpeed = 0;
         var hoverStyle = {
             fill: "none",
-            stroke: "#5994f2"
+            stroke: "#5994f2",
+            "stroke-width": 23
         }
 
         // powiększenie obszaru roboczego
