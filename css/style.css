@@ -32,7 +32,7 @@ footer {
 
 #streetName-label{
     font-weight: bold;
-    display: inline;
+    display: inline-block;
 }
 
 #map-container {
@@ -54,7 +54,7 @@ svg{
 }
 
 #setNewStreetShowPlace-btn{
-    display: inline; 
+    display: inline-block; 
     margin-right:0;
     float: right;
 }
@@ -67,7 +67,7 @@ svg{
 
 
 #getHint-btn{
-    display: inline; 
+    display: inline-block; 
     margin-right:5px;
     float: right;
 }
@@ -189,4 +189,8 @@ svg{
 .mobileHoverFix.hover {
     background-color: #337ab7;
     border-color: #2e6da4;
+}
+
+.btn-s {
+    padding: 6px 6px!important;
 }
