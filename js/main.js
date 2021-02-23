@@ -51,7 +51,7 @@
 
     $('#info-click').click(function () {
         $('#content-subpage').load('./partials/info.html', null, function () {
-            alert('[info] w trakcie implementacji');
+            //alert('[info] w trakcie implementacji');
         });
     });
 
