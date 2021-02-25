@@ -30,11 +30,14 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4DT6DJT633"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-        gtag('config', 'G-4DT6DJT633');
+        gtag('config', 'G-4DT6DJT633', {
+        cookie_domain: 'platuszkiewicz.github.io',
+        cookie_flags: 'SameSite=None;Secure',
+      });
     </script>
 </head>
 <body>
