@@ -26,7 +26,7 @@
         var minimum = 0;
         var maximum = streetsJSON.length - 1;
         var randomNumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
-        console.log(streetsJSON[randomNumber]);
+        //console.log(streetsJSON[randomNumber]);
         // $('#streetName-label').html(streetsJSON[randomNumber].full_name);    // widok
         // $('#streetName-label').attr('name', streetsJSON[randomNumber].name); // backend
         streetToGuess = streetsJSON[randomNumber];
@@ -144,18 +144,18 @@
                                     (-((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight)
               , bottomLimit = sizes.height - gutterHeight - (sizes.viewBox.y * sizes.realZoom)
 
-            console.log("###");
-            console.log("Grey available area height", container.height())
-            console.log("Map height on screen", SVG_height * sizes.realZoom)
-            console.log("Init zoom:", initZoom)
-            console.log(sizes);
-            console.log("Gutter width:", gutterWidth);
-            console.log("Gutter height:", gutterHeight);
-            console.log("Left limit:", leftLimit);
-            console.log("Right limit:", rightLimit);
-            console.log("Top limit:", topLimit, sizes.realZoom, sizes.viewBox.y, sizes.viewBox.height, gutterHeight);
-            console.log("Bottom limit:", bottomLimit);
-            console.log(this);
+            //console.log("###");
+            //console.log("Grey available area height", container.height())
+            //console.log("Map height on screen", SVG_height * sizes.realZoom)
+            //console.log("Init zoom:", initZoom)
+            //console.log(sizes);
+            //console.log("Gutter width:", gutterWidth);
+            //console.log("Gutter height:", gutterHeight);
+            //console.log("Left limit:", leftLimit);
+            //console.log("Right limit:", rightLimit);
+            //console.log("Top limit:", topLimit, sizes.realZoom, sizes.viewBox.y, sizes.viewBox.height, gutterHeight);
+            //console.log("Bottom limit:", bottomLimit);
+            //console.log(this);
 
             customPan = {}
             customPan.x = Math.max(leftLimit, Math.min(rightLimit, newPan.x))
