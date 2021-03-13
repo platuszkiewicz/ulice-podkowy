@@ -83,16 +83,19 @@
           if ($(this).prop('name') == streetToGuess.name) {
               $(this).addClass('btn-success');
               if (randomNumber === 0) {
+                  document.getElementById("1Answer-btn").disabled = true;
                   document.getElementById("2Answer-btn").disabled = true;
                   document.getElementById("3Answer-btn").disabled = true;
                   document.getElementById("setNewStreetGiveName-btn").disabled = true;
               } else if (randomNumber === 1) {
                   document.getElementById("1Answer-btn").disabled = true;
+                  document.getElementById("2Answer-btn").disabled = true;
                   document.getElementById("3Answer-btn").disabled = true;
                   document.getElementById("setNewStreetGiveName-btn").disabled = true;
               } else {
                   document.getElementById("1Answer-btn").disabled = true;
                   document.getElementById("2Answer-btn").disabled = true;
+                  document.getElementById("3Answer-btn").disabled = true;
                   document.getElementById("setNewStreetGiveName-btn").disabled = true;
               }
             setTimeout(function () {
