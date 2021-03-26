@@ -336,8 +336,12 @@
                 mobileAdapt_giveName();
             }
           window.addEventListener('resize', function () {
-                $('svg').remove();
-                drawMap_giveName();
+              if (!isMobile()) {
+                  $('svg').remove();
+                  drawMap_giveName();
+              } else {
+                  alert('is mobile=true')
+              }
           }, true);
             // mobileHoverFix
             $("button:not(.answer)").on("touchstart", function () {
