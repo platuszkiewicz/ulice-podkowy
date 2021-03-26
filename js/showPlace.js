@@ -1,6 +1,8 @@
 ﻿var ShowPlace = (function () {
     // zmienne globalne
     var streetsJSON;
+    var previousOrientation = "horizontal";
+    var presentOrientation = "horizontal";
 
     // losuje ulicę z streetsJSON i zapisuje ją do HTMLa na górze
     function setStreet_showPlace() {
@@ -328,16 +330,21 @@
             if (isMobile()) {
                 mobileAdapt_showPlace();
             }
+
+            previousOrientation = window.innerHeight > window.innerWidth ? "vertical" : "horizontal";
+            presentOrientation = previousOrientation;
+
             window.addEventListener('resize', function () {
-                if (!isMobile()) {
+                previousOrientation = presentOrientation;
+                presentOrientation = window.innerHeight > window.innerWidth ? "vertical" : "horizontal";
+                // Przerysowanie wykonuj tylko dla
+                // (1) zmiany rozmiaru okna na desktop
+                // (2) zmiany orientacji na mobile
+                if (!isMobile() || previousOrientation !== presentOrientation) {
                     $('svg').remove();
                     drawMap_showPlace();
                 }
-            }, true);
-            window.addEventListener("orientationchange", function () {
-                $('svg').remove();
-                drawMap_showPlace();
-            }, false);
+            });
             // mobileHoverFix
             $("button:not(.answer)").on("touchstart", function () {
                 $(this).removeClass("mobileHoverFix");

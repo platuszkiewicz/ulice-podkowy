@@ -2,6 +2,8 @@
     // zmienne globalne
     var streetsJSON;
     var streetToGuess = null;
+    var previousOrientation = "horizontal";
+    var presentOrientation = "horizontal";
 
     // obiekt z pathami svg
     var streets = {};
@@ -335,16 +337,22 @@
             if (isMobile()) {
                 mobileAdapt_giveName();
             }
-          window.addEventListener('resize', function () {
-              if (!isMobile()) {
-                  $('svg').remove();
-                  drawMap_giveName();
-              }
-          }, true);
-            window.addEventListener("orientationchange", function () {
-                $('svg').remove();
-                drawMap_giveName();
-            }, false);
+
+            previousOrientation = window.innerHeight > window.innerWidth ? "vertical" : "horizontal";
+            presentOrientation = previousOrientation;
+
+            window.addEventListener('resize', function () {
+                previousOrientation = presentOrientation;
+                presentOrientation = window.innerHeight > window.innerWidth ? "vertical" : "horizontal";
+                // Przerysowanie wykonuj tylko dla
+                // (1) zmiany rozmiaru okna na desktop
+                // (2) zmiany orientacji na mobile
+                if (!isMobile() || previousOrientation !== presentOrientation) {
+                    $('svg').remove();
+                    drawMap_giveName();
+                }
+            });
+
             // mobileHoverFix
             $("button:not(.answer)").on("touchstart", function () {
                 $(this).removeClass("mobileHoverFix");
