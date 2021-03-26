@@ -329,8 +329,10 @@
                 mobileAdapt_showPlace();
             }
             window.addEventListener('resize', function () {
-                $('svg').remove();
-                drawMap_showPlace();
+                if (isMobile()) {
+                    $('svg').remove();
+                    drawMap_showPlace();
+                }
             }, true);
             // mobileHoverFix
             $("button:not(.answer)").on("touchstart", function () {
