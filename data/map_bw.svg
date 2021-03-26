@@ -24,7 +24,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -37,15 +37,15 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1366"
-     inkscape:window-height="721"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
      id="namedview38944"
      showgrid="false"
-     inkscape:zoom="0.25"
-     inkscape:cx="793.77825"
-     inkscape:cy="828.79841"
-     inkscape:window-x="-4"
-     inkscape:window-y="-4"
+     inkscape:zoom="5.6568542"
+     inkscape:cx="610.34319"
+     inkscape:cy="999.20614"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer2" />
   <g
@@ -439,8 +439,9 @@
     <path
        id="konwalii"
        style="fill:none;stroke:#000000;stroke-width:9;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.99607843"
-       d="M 310.92073,1010.7846 262.8348,974.06582 m 51.09375,-56.79688 -51.09375,56.79688 -9.61719,10.62498"
-       inkscape:connector-curvature="0" />
+       d="m 313.92855,917.26894 c -20.23979,22.47144 -40.41599,45.00019 -60.71094,67.42186"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
     <path
        style="fill:none;stroke:#000000;stroke-width:9;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.99607843"
        d="m 698.04967,1033.1205 -163.6368,10.8828"
@@ -615,7 +616,19 @@
        id="borowin"
        style="display:inline;fill:none;stroke:#000000;stroke-width:9;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.99607843"
        d="m 589.27227,1093.9877 -37.6953,1.9883 m 156.9141,-6.4141 -25.7852,-0.012 -45.9453,3.1133"
-       inkscape:label="#borowin"
+       inkscape:label="Borowin"
        inkscape:connector-curvature="0" />
+    <path
+       id="krokusowa"
+       style="display:inline;fill:none;stroke:#000000;stroke-width:9.00000095;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.99607843"
+       d="M 311.79073,1006.9063 267.15195,969.25939"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       id="slowikow"
+       style="display:inline;fill:none;stroke:#000000;stroke-width:9.00000095;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.99607843"
+       d="M 477.87293,577.95232 434.15117,549.03848"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
   </g>
 </svg>
