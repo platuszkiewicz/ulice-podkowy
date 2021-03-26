@@ -22,7 +22,7 @@
     };
 
     // losuje ulicę z streetsJSON i zapisuje ją do HTMLa na górze
-    function setStreet_giveName() {
+    function setStreet_giveName(callback) {
         var minimum = 0;
         var maximum = streetsJSON.length - 1;
         var randomNumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
@@ -42,6 +42,9 @@
             streets[streetToGuess.name].animate(pointerStyle, 250, function () {
                 // callback
             });
+        }
+        if (callback) {
+            callback();
         }
     }
 
@@ -289,10 +292,9 @@
         // kliknięcie "Losuj inną"
         $('#setNewStreetGiveName-btn').off("click").click(function () {
             document.getElementById("setNewStreetGiveName-btn").disabled = true;
-            setTimeout(250, function () {
+            setStreet_giveName(function () {
                 document.getElementById("setNewStreetGiveName-btn").disabled = false;
             });
-            setStreet_giveName();
             prepareAnswers();
         });
     }
