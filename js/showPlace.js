@@ -329,7 +329,7 @@
                 mobileAdapt_showPlace();
             }
             window.addEventListener('resize', function () {
-                if (isMobile()) {
+                if (!isMobile()) {
                     $('svg').remove();
                     drawMap_showPlace();
                 }
