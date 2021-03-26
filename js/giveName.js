@@ -337,13 +337,14 @@
             }
           window.addEventListener('resize', function () {
               if (!isMobile()) {
-                  //alert('resize');
                   $('svg').remove();
                   drawMap_giveName();
-              } else {
-                  //alert('is mobile=true');
               }
           }, true);
+            window.addEventListener("orientationchange", function () {
+                $('svg').remove();
+                drawMap_giveName();
+            }, false);
             // mobileHoverFix
             $("button:not(.answer)").on("touchstart", function () {
                 $(this).removeClass("mobileHoverFix");
