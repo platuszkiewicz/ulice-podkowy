@@ -337,11 +337,11 @@
             }
           window.addEventListener('resize', function () {
               if (!isMobile()) {
-                  alert('resize');
+                  //alert('resize');
                   $('svg').remove();
                   drawMap_giveName();
               } else {
-                  alert('is mobile=true');
+                  //alert('is mobile=true');
               }
           }, true);
             // mobileHoverFix
