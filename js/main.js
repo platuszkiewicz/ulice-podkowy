@@ -1,4 +1,7 @@
-﻿$(document).ready(function () {
+﻿var myInterval;
+$(document).ready(function () {
+    var gameMode; // 1/0
+    var viewMode; // "giveName"/"showPlace"
     // usuń reklamy
     setTimeout(function () {
         //removeAds();
@@ -36,6 +39,15 @@
             ShowPlace.getInstance().init(); // On Load
             setTimeout(function () {
                 // removeAds();
+                stopTimer();
+                $('#giveNameTime').text("00" + ":" + "00");
+                $('#showPlaceTime').text("00" + ":" + "00");
+                clearPoints();
+
+                // autostart on "time" mode
+                if ($('input[type=radio][name=radioGroup]:checked').val() == "time") {
+                    document.getElementById('start-btn').click();
+                }
             }, 400);
         });
     });
@@ -45,6 +57,15 @@
             GiveName.getInstance().init(); // On Load
             setTimeout(function () {
                 // removeAds();
+                stopTimer();
+                $('#giveNameTime').text("00" + ":" + "00");
+                $('#showPlaceTime').text("00" + ":" + "00");
+                clearPoints();
+
+                // autostart on "time" mode
+                if ($('input[type=radio][name=radioGroup]:checked').val() == "time") {
+                    document.getElementById('start-btn').click();
+                }
             }, 400);
         });
     });
@@ -62,6 +83,71 @@
 
     // usuń focus po kliknięciu guzików
     document.addEventListener('click', function (e) { if (document.activeElement.toString() == '[object HTMLButtonElement]') { document.activeElement.blur(); } });
+
+    // "Start"
+    $('#start-btn').show();
+    // elementy po prawej stronie
+    $("#giveNameTime").show();
+      
+
+    // przełączenie konfiguracji
+    $('input[type=radio][name=radioGroup]').change(function () {
+        if (this.value == 'questionNumber') {
+            // inputy liczbowe
+            //document.getElementById("questionNumber-input").disabled = false;
+            //document.getElementById("time-input").disabled = true;
+            // elementy po prawej stronie
+            $("#giveNameTime").hide();
+            $("#showPlaceTime").hide();
+            // "Start"
+            $('#start-btn').hide();
+
+            stopTimer();
+            $('#giveNameTime').text("00" + ":" + "00");
+            $('#showPlaceTime').text("00" + ":" + "00");
+            clearPoints();
+
+            // wyczyscic bledne odpowiedzi
+            $('.answer .btn-danger').removeClass('.btn-danger');
+        }
+        else if (this.value == 'time') {
+            // inputy liczbowe
+            //document.getElementById("time-input").disabled = false;
+            //document.getElementById("questionNumber-input").disabled = true;
+            // elementy po prawej stronie
+            $("#giveNameTime").show();
+            $("#showPlaceTime").show();
+            // "Start"
+            $('#start-btn').show();
+
+            stopTimer();
+            $('#giveNameTime').text("00" + ":" + "00");
+            $('#showPlaceTime').text("00" + ":" + "00");
+            clearPoints();
+
+            // symulacja przycisku "Re-start"
+            document.getElementById('start-btn').click();
+
+            // wyczyscic bledne odpowiedzi
+            $('.answer .btn-danger').removeClass('.btn-danger');
+        }
+    });
+
+    // schowaj na poczatku "Start"
+    $('#start-btn').hide();
+
+    function stopTimer() {
+        if (myInterval) {
+            clearInterval(myInterval);
+        }
+    }
+
+    function clearPoints() {
+        correctAnswers = 0;
+        wrongAnswers = 0;
+        $('#giveNameScore').html('Wynik: 0/0');
+        $('#showPlaceScore').html('Wynik: 0/0');
+    }
 });
 
 function isMobile() {

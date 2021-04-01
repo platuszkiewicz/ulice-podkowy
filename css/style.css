@@ -194,3 +194,36 @@ svg{
 .btn-s {
     padding: 6px 6px!important;
 }
+
+#showPlaceTime, #giveNameTime, #showPlaceScore, #giveNameScore{
+    float: right;
+    display: inline-block;
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+.form-inline input.form-control {
+    width: 100%;
+}
+
+#configArea{
+    background-color: white!important;
+}
+
+#configArea label{
+    color: black!important;
+}
+
+#giveNameScore {
+    margin-left: 6px;
+}
+
+#showPlaceScore {
+    margin-left: 6px;
+}
+
+#showPlaceTime {
+    margin-left: 6px;
+}

@@ -4,6 +4,8 @@
     var streetToGuess = null;
     var previousOrientation = "horizontal";
     var presentOrientation = "horizontal";
+    var correctAnswers = 0;
+    var wrongAnswers = 0;
 
     // obiekt z pathami svg
     var streets = {};
@@ -86,6 +88,9 @@
 
         $('button.answer').off("click").click(function () {
           if ($(this).prop('name') == streetToGuess.name) {
+              if ($('#streetName-label-parent').find('button.btn-danger').length == 0) { // zwiększ ilość złych odpowiedzi tylko gdy wczesniej nie podano zlej odpowiedzi.
+                  correctAnswers++;
+              }
               $(this).addClass('btn-success');
               if (randomNumber === 0) {
                   document.getElementById("1Answer-btn").disabled = true;
@@ -113,8 +118,12 @@
             }, 1250)
           }
           else {
-            $(this).addClass('btn-danger');
+              if ($('#streetName-label-parent').find('button.btn-danger').length == 0) { // zwiększ ilość złych odpowiedzi tylko gdy wczesniej nie podano zlej odpowiedzi.
+                  wrongAnswers++;
+              }
+              $(this).addClass('btn-danger');
           }
+            giveName_updateScore();
         });
     }
 
@@ -306,6 +315,7 @@
         $('#hideMenu-btn').html('<>');
         $('#streetName-label-parent')["0"].childNodes["0"].data = ''
         $('#setNewStreetGiveName-btn').html(' <i class="fa fa-refresh fa-1x" aria-hidden="true"></i>');
+        $('#giveNameScore').html('0/0');
     }
     // pobiera ulice dla danego id
     function getStreetById(streets, id) {
@@ -319,7 +329,90 @@
         return result;
     }
 
+    function giveName_updateScore() {
+        updateScoreButton();
 
+        function printResults(callback) {
+            alert("Koniec gry! Twój wynik to " + String(correctAnswers) + '/' + String(correctAnswers + wrongAnswers));
+            if (callback) {
+                callback();
+            }
+        }
+
+        function updateScoreButton(callback) {
+            $('#giveNameScore').html((isMobile() ? '' : 'Wynik: ') + String(correctAnswers) + '/' + String(correctAnswers + wrongAnswers)).promise().done(function () {
+                if ((correctAnswers + wrongAnswers) == $('#questionNumber-input').val() && $('input[type=radio][name=radioGroup]:checked').val() == "questionNumber") {
+                    setTimeout(function () {
+                        printResults(function () {
+                            correctAnswers = 0;
+                            wrongAnswers = 0;
+                            $('#giveNameScore').html('Wynik: ' + String(correctAnswers) + '/' + String(correctAnswers + wrongAnswers));
+                            // przeładowanie pytania
+                            // setStreet_giveName();
+                            prepareAnswers();
+                        });
+                    },150);
+                }
+                else {
+                    // kolejne pytanie
+                }
+            });
+        }
+    }
+
+    function giveName_startTimer() {
+        correctAnswers = 0;
+        wrongAnswers = 0;
+        var timeValue = $('#time-input').val();
+        display = $('#giveNameTime');
+        startTimer(timeValue, display);
+    }
+
+    function startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        myInterval = setInterval(function () {
+            minutes = parseInt(timer / 60, 10)
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            if (--timer < 0) {
+                clearInterval(myInterval);
+                display.text("00" + ":" + "00");
+                giveName_updateScore("time");
+                setTimeout(function () {
+                    alert("Koniec czasu! W czasie " + $('#time-input').val() + " sekund uzyskano wynik " + String(correctAnswers) + '/' + String(correctAnswers + wrongAnswers));
+                    giveName_startTimer();
+                    giveName_updateScore();
+                    // przeładowanie pytania
+                    // setStreet_giveName();
+                    prepareAnswers();
+                }, 150);
+            } else {
+                display.text(minutes + ":" + seconds);
+            }
+        }, 1000);
+
+        $('#start-btn').click(function () {
+            clearInterval(myInterval);
+            correctAnswers = 0;
+            wrongAnswers = 0;
+        });
+    }
+
+    function setGame_giveName(gameState) {
+        // zmiana wyglądu
+        $('#setNewStreetGiveName-btn').hide();
+
+        if ($("input[name='radioGroup']:checked").val() == 'questionNumber') {         
+           $('#giveNameTime').hide();
+        }
+
+        // wyzerowanie wskazań
+        correctAnswers = 0;
+        wrongAnswers = 0;
+    }
 
     // load other singletons. Other singleton contain some logic which can be packed, i.e. modal	
     function GiveName() {
@@ -334,9 +427,19 @@
             setStreet_giveName();
             drawMap_giveName();
             prepareAnswers();
-            if (isMobile()) {
-                mobileAdapt_giveName();
-            }
+
+            setTimeout(function () {
+                if (isMobile()) {
+                    mobileAdapt_giveName();
+                }
+                setGame_giveName();
+            }, 300);
+
+
+            // start timera
+            $('#start-btn').off('click').click(function () {
+                giveName_startTimer();
+            });
 
             previousOrientation = window.innerHeight > window.innerWidth ? "vertical" : "horizontal";
             presentOrientation = previousOrientation;

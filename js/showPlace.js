@@ -3,6 +3,8 @@
     var streetsJSON;
     var previousOrientation = "horizontal";
     var presentOrientation = "horizontal";
+    var correctAnswers = 0;
+    var wrongAnswers = 0;
 
     // losuje ulicę z streetsJSON i zapisuje ją do HTMLa na górze
     function setStreet_showPlace() {
@@ -211,6 +213,7 @@
 
                 if ($('#streetName-label').attr('name') == this.data("id")) {
                     //alert('ok');
+                    correctAnswers++;
                     var that = this;
                     that.animate(successStyle, 250, function () {
                         setTimeout(function () {
@@ -222,6 +225,7 @@
 
                 } else {
                     //alert('błędna odpowiedź');
+                    wrongAnswers++;
                     var that = this;
                     that.animate(errorStyle, 250, function () {
                         setTimeout(function () {
@@ -235,7 +239,7 @@
                         }, 500);
                     });
                 }
-
+                showPlace_updateScore();
             });
         }
 
@@ -294,12 +298,42 @@
 
     }
 
+    function showPlace_updateScore() {
+        updateScoreButton();
+
+        function printResults(callback) {
+            alert("Koniec gry! Twój wynik to " + String(correctAnswers) + '/' + String(correctAnswers + wrongAnswers));
+            if (callback) {
+                callback();
+            }
+        }
+
+        function updateScoreButton(callback) {
+            $('#showPlaceScore').html((isMobile() ? '' : 'Wynik: ') + String(correctAnswers) + '/' + String(correctAnswers + wrongAnswers)).promise().done(function () {
+                if ((correctAnswers + wrongAnswers) == $('#questionNumber-input').val() && $('input[type=radio][name=radioGroup]:checked').val() == "questionNumber") {
+                    setTimeout(function () {
+                        printResults(function () {
+                            correctAnswers = 0;
+                            wrongAnswers = 0;
+                            $('#showPlaceScore').html((isMobile() ? '' : 'Wynik: ') + String(correctAnswers) + '/' + String(correctAnswers + wrongAnswers));
+                            // przeładowanie pytania
+                            setStreet_showPlace();
+                        });
+                    }, 150);
+                }
+                else {
+                    // kolejne pytanie
+                }
+            });
+        }
+    }
+
     // przystosowuje urządzenia mobilne
     function mobileAdapt_showPlace() {
         $('#hideMenu-btn').html('<>');
         $('#streetName-label-parent')["0"].childNodes["0"].data = 'Wskaż ulicę: ';
         $('#setNewStreetShowPlace-btn').html(' <i class="fa fa-refresh fa-1x" aria-hidden="true"></i>');
-
+        $('#showPlaceScore').html('0/0');
     }
     // pobiera ulice dla danego id
     function getStreetById(streets, id) {
@@ -313,7 +347,58 @@
         return result;
     }
 
+    function showPlace_startTimer() {
+        correctAnswers = 0;
+        wrongAnswers = 0;
+        var timeValue = $('#time-input').val();
+        display = $('#showPlaceTime');
+        startTimer(timeValue, display);
+    }
 
+    function startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        myInterval = setInterval(function () {
+            minutes = parseInt(timer / 60, 10)
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            if (--timer < 0) {
+                clearInterval(myInterval);
+                display.text("00" + ":" + "00");
+                showPlace_updateScore("time");
+                setTimeout(function () {
+                    alert("Koniec czasu! W czasie " + $('#time-input').val() + " sekund uzyskano wynik " + String(correctAnswers) + '/' + String(correctAnswers + wrongAnswers));
+                    showPlace_startTimer();
+                    showPlace_updateScore();
+                    // przeładowanie pytania
+                    setStreet_showPlace();
+                }, 150);
+            } else {
+                display.text(minutes + ":" + seconds);
+            }
+        }, 1000);
+
+        $('#start-btn').click(function () {
+            clearInterval(myInterval);
+            correctAnswers = 0;
+            wrongAnswers = 0;
+        });
+    }
+
+    function setGame_showPlace(gameState) {
+        // zmiana wyglądu
+        $('#setNewStreetGiveName-btn').hide();
+
+        if ($("input[name='radioGroup']:checked").val() == 'questionNumber') {
+            $('#showPlaceTime').hide();
+        }
+
+        // wyzerowanie wskazań
+        correctAnswers = 0;
+        wrongAnswers = 0;
+    }
 
     // load other singletons. Other singleton contain some logic which can be packed, i.e. modal	
     function ShowPlace() {
@@ -327,9 +412,18 @@
             streetsJSON = data;
             setStreet_showPlace();
             drawMap_showPlace();
-            if (isMobile()) {
-                mobileAdapt_showPlace();
-            }
+
+            setTimeout(function () {
+                if (isMobile()) {
+                    mobileAdapt_showPlace();
+                }
+                setGame_showPlace();
+            }, 300);
+
+            // start timera
+            $('#start-btn').off('click').click(function () {
+                showPlace_startTimer();
+            });
 
             previousOrientation = window.innerHeight > window.innerWidth ? "vertical" : "horizontal";
             presentOrientation = previousOrientation;
