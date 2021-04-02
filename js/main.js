@@ -48,7 +48,7 @@ $(document).ready(function () {
                 if ($('input[type=radio][name=radioGroup]:checked').val() == "time") {
                     document.getElementById('start-btn').click();
                 }
-            }, 400);
+            }, 100);
         });
     });
 
@@ -66,7 +66,7 @@ $(document).ready(function () {
                 if ($('input[type=radio][name=radioGroup]:checked').val() == "time") {
                     document.getElementById('start-btn').click();
                 }
-            }, 400);
+            }, 100);
         });
     });
 

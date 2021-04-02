@@ -413,12 +413,10 @@
             setStreet_showPlace();
             drawMap_showPlace();
 
-            setTimeout(function () {
-                if (isMobile()) {
-                    mobileAdapt_showPlace();
-                }
-                setGame_showPlace();
-            }, 300);
+            if (isMobile()) {
+                mobileAdapt_showPlace();
+            }
+            setGame_showPlace();
 
             // start timera
             $('#start-btn').off('click').click(function () {

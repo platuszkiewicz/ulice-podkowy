@@ -428,13 +428,10 @@
             drawMap_giveName();
             prepareAnswers();
 
-            setTimeout(function () {
-                if (isMobile()) {
-                    mobileAdapt_giveName();
-                }
-                setGame_giveName();
-            }, 300);
-
+            if (isMobile()) {
+                mobileAdapt_giveName();
+            }
+            setGame_giveName();
 
             // start timera
             $('#start-btn').off('click').click(function () {
